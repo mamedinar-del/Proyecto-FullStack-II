@@ -204,6 +204,7 @@ button {
 .layout_padding {
     padding-top: 100px;
     padding-bottom: 0px;
+    background-color: #000;
 }
 
 .padding_0 {
@@ -217,7 +218,7 @@ button {
     width: 100%;
     float: left;
     height: auto;
-    background-image: url(../images/banner-bg.png);
+    background-image: url(../images/banner-colores.png);
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -254,7 +255,7 @@ button {
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
     color: #ffffff;
-    background-color: #ed1c24;
+    background-color:#1E90FF;
 }
 
 .navbar-light .navbar-nav .active>.nav-link,
@@ -262,7 +263,7 @@ button {
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show>.nav-link {
     color: #ffffff;
-    background-color: #ed1c24;
+    background-color: #1E90FF;
 }
 
 .navbar-brand {
@@ -281,36 +282,45 @@ button {
     display: flex;
 }
 
+.custom_menu_contenedor{
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
 .custom_menu {
-    width: 80%;
+    width: 100%;
     float: left;
     padding: 15px 0px 15px 0px;
+    background-color: white;
 }
 
 .custom_menu ul {
     margin: 0px;
     padding: 0px;
+    list-style: none;
+    display: flex;
 }
 
 .custom_menu li a{
     float: left;
     font-size: 16px;
-    color: #ffffff;
+    color: #000;
     padding: 7px 20px 7px 20px;
     text-transform: uppercase;
-    background-color: transparent;
-    margin: 0px 7px;
+    margin: 1px 7px;
     border-radius: 5px;
 }
 
 .custom_menu li a:hover{
     color: #ffffff;
-    background-color: #ed1c24;
+    background-color: #1E90FF;
 }
 
 .custom_menu li.active a{
     color: #ffffff;
-    background-color: #ed1c24;
+    background-color: #1E90FF;
 }
 
 .search_btn {}
@@ -332,7 +342,7 @@ button {
 }
 
 .search_btn li a:hover {
-    color: #ed1c24;
+    color: #1E90FF;
 }
 
 
@@ -386,11 +396,11 @@ button {
     width: 100%;
     float: left;
     font-size: 18px;
-    background-color: #ed1c24;
+    background-color: #1E90FF;
     color: #fefefd;
     text-align: center;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .read_bt a:hover {
@@ -418,7 +428,7 @@ button {
     background-color: #ffffff;
     border-radius: 100%;
     font-weight: bold;
-    border: 6px solid #232884;
+    border: 6px solid #39FF14;
 }
 
 #my_slider .carousel-control-next:focus,
@@ -426,7 +436,7 @@ button {
 #my_slider .carousel-control-prev:focus,
 #my_slider .carousel-control-prev:hover {
     color: #fefefd;
-    background-color: #232884;
+    background-color: #39FF14;
 }
 
 
@@ -446,7 +456,7 @@ button {
     height: auto;
     border-radius: 40px;
     padding: 40px 0px;
-    box-shadow: 0px 0px 20px 0px;
+    box-shadow: 10px 0px 20px 0px;
     position: relative;
     top: -70px;
 }
@@ -506,7 +516,7 @@ form.example button {
   float: right;
   width: 20%;
   padding: 10px;
-  background: #ed1c24;
+  background: #1E90FF;
   color: white;
   font-size: 17px;
   border-left: none;
@@ -515,7 +525,7 @@ form.example button {
 }
 
 form.example button:hover {
-    background: #ed1c24;
+    background: #1E90FF;
 }
 
 form.example::after {
@@ -615,7 +625,7 @@ form.example::after {
     float: left;
     font-size: 16px;
     color: #ffffff;
-    background-color: #ed1c24;
+    background-color: #1E90FF;
     padding: 12px;
     border-radius: 5px;
     text-align: center;
@@ -739,7 +749,7 @@ form.example::after {
 
 .signup_bt a:hover {
     color: #ffffff;
-    background-color: #ed1c24;
+    background-color: #1E90FF;
 }
 
 .pricing_box:hover {
@@ -768,7 +778,7 @@ form.example::after {
 
 .pricing_box:hover .signup_bt a{
     color: #ffffff;
-    background-color: #ed1c24;
+    background-color: #1E90FF;
 }
 
 /* pricing section start */
@@ -958,7 +968,7 @@ form.example::after {
 .carousel-indicators li {
     width: 20px;
     height: 20px;
-    background-color: #ed1c24;
+    background-color: #1E90FF;
     border-radius: 100%;
 }
 
@@ -1068,7 +1078,7 @@ textarea#comment.massage-bt::placeholder {
     text-align: center;
     font-size: 16px;
     color: #fefefd;
-    background-color: #ed1c24;
+    background-color: #1E90FF;
     padding: 14px;
     margin-top: 40px;
     display: block;
@@ -1127,11 +1137,11 @@ span.angle_icon {
 }
 
 span.angle_icon:hover{
-    color: #ed1c24;
+    color: #1E90FF;
 }
 
 span.angle_icon.active{
-    color: #ed1c24;
+    color: #1E90FF;
 }
 
 .footer_main {
@@ -1177,7 +1187,7 @@ p.dummy_text {
 }
 
 .social_icon li a:hover {
-    background-color: #ed1c24;
+    background-color: #1E90FF;
     border: 1px solid #ffffff;
 }
 
@@ -1203,7 +1213,7 @@ p.dummy_text {
 }
 
 .location_text li a:hover {
-    color: #ed1c24;
+    color: #1E90FF;
 }
 
 .padding_left_10 {
@@ -1235,7 +1245,7 @@ p.dummy_text {
 }
 
 .copyright_text a:hover {
-    color: #ed1c24;
+    color: #1E90FF;
 }
 
 
