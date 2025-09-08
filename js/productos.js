@@ -2,12 +2,12 @@
 const products = [
     {
         id: 1,
-        name: "Juego de mesa ",
+        name: "Juego de mesa Catan ",
         price: 20990,
         category: "Juego",
-        image: "",
+        image: "images/Juego Catan (1).png",
         rating: 4.5,
-        description: "El mejor juego de mesa para disfrutar tus tardes con amigos."
+        description: "El mejor juego de mesa estrategico para disfrutar tus tardes con amigos."
     },
     
 ];
@@ -68,22 +68,22 @@ function renderProducts(productsToRender) {
     });
 }
 
-// Filtrar productos según los criterios seleccionados
+// Categorias de productos
 function filterProducts() {
     const category = document.getElementById('category').value;
     const price = document.getElementById('price').value;
     const sort = document.getElementById('sort').value;
     
-    // Filtro precio
+    // Precios
     if (price !== 'all') {
-        if (price === '0-25') {
-            filtered = filtered.filter(product => product.price < 25);
-        } else if (price === '25-50') {
-            filtered = filtered.filter(product => product.price >= 25 && product.price < 50);
-        } else if (price === '50-100') {
-            filtered = filtered.filter(product => product.price >= 50 && product.price < 100);
-        } else if (price === '100+') {
-            filtered = filtered.filter(product => product.price >= 100);
+        if (price === '0-10000') {
+            filtered = filtered.filter(product => product.price < 10000);
+        } else if (price === '11000-30000') {
+            filtered = filtered.filter(product => product.price >= 11000 && product.price < 30000);
+        } else if (price === '31000-50000') {
+            filtered = filtered.filter(product => product.price >= 31000 && product.price < 50000);
+        } else if (price === '51000+') {
+            filtered = filtered.filter(product => product.price >= 51000);
         }
     }
     
