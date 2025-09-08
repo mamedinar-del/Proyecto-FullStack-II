@@ -1,14 +1,23 @@
-// Datos de productos (simulados)
+//Productos
 const products = [
     {
         id: 1,
         name: "Juego de mesa Catan ",
         price: 20990,
-        category: "Juego",
+        category: "Juegos",
         image: "images/Juego Catan (1).png",
         rating: 4.5,
         description: "El mejor juego de mesa estrategico para disfrutar tus tardes con amigos."
     },
+    {
+        id: 2,
+        name: "PlayStation 5 ",
+        price: 499000,
+        category: "Electronica",
+        image: "images/ps5-caja.png",
+        rating: 5,
+        description: "Consola de videojuegos de nueva generacion de la compañia de Sony."
+    }
     
 ];
 
@@ -59,7 +68,7 @@ function renderProducts(productsToRender) {
         productsContainer.appendChild(productCard);
     });
 
-    //botones de carrito
+    //botones de carrito (Hay que arreglarlo)
     document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', (e) => {
             const productId = parseInt(e.target.getAttribute('data-id'));
