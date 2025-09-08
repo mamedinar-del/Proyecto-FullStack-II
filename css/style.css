@@ -1269,5 +1269,9 @@ p.dummy_text {
 }
 
 .carousel-bg-gray {
-    background-color: #f0f0f0; /* Light gray */
+    background-color: #f0f0f0;
+}
+
+.background-colores{
+    background-color: "images/banner-colores.png";
 }

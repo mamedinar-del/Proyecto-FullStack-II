@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level-Up Gamer 🎮</title>
+
+    <link rel="shortcut icon" href="images/LogoTienda-SinFondo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/productos.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="shortcut icon" href="images/LogoTienda-SinFondo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Sen:400,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="css/whatsapp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="logo-container">
+            <a class="navbar-brand hea "href="index.html"><img src="images/LogoTienda-SinFondo-125x125.png"></a>
+         </div>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"></div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar productos">
+                    <button>Buscar</button>
+                </div>
+                <div class="cart-icon">
+                    🛒
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="filters">
+            <div class="filter-options">
+                <div class="filter-group">
+                    <label for="category">Categoría:</label>
+                    <select id="category">
+                        <option value="all">Todas las categorías</option>
+                        <option value="electronics">Electrónica</option>
+                        <option value="clothing">Juegos</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="price">Precio:</label>
+                    <select id="price">
+                        <option value="all">Todos los precios</option>
+                        <option value="0-25">Menos de $25</option>
+                        <option value="25-50">$25 - $50</option>
+                        <option value="50-100">$50 - $100</option>
+                        <option value="100+">Más de $100</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sort">Ordenar por:</label>
+                    <select id="sort">
+                        <option value="popular">Más populares</option>
+                        <option value="price-asc">Precio: menor a mayor</option>
+                        <option value="price-desc">Precio: mayor a menor</option>
+                        <option value="rating">Mejor valorados</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-grid" id="products-container">
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LevelUp</h3>
+                    <p>Productos al mejor precio.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces útiles</h3>
+                    <ul>
+                        <li><a href="#">Sobre nosotros</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li>Email: LevelUp@gmail.com</li>
+                        <li>Teléfono: +56999886545</li>
+                        <li>Dirección: Manuel Montt, providencia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/productos.js"></script>
+</body>
+</html>
