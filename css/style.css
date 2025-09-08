@@ -10,8 +10,6 @@
 @import url(jquery-ui.css);
 @import url(nice-select.css);
 
-/*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
-
 * {
     box-sizing: border-box !important;
     transition: ease all 0.5s;
@@ -206,9 +204,6 @@ button {
     padding: 0px;
 }
 
-
-/* header section start */
-
 .header_section {
     width: 100%;
     float: left;
@@ -338,12 +333,6 @@ button {
     color: #1E90FF;
 }
 
-
-/* header section end */
-
-
-/* banner section start */
-
 .banner_section {
     width: 100%;
     float: left;
@@ -364,7 +353,7 @@ button {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #ffffff;
+    color: #000;
     font-weight: bold;
     line-height: 50px;
     padding-top: 90px;
@@ -431,11 +420,6 @@ button {
     color: #fefefd;
     background-color: #39FF14;
 }
-
-
-/* banner section end */
-
-/* domain section start */
 
 .domain_section{
     width: 100%;
@@ -527,14 +511,11 @@ form.example::after {
   display: table;
 }
 
-/* domain section end */
-
-/* about section start */
-
 .about_section {
     width: 100%;
     float: left;
     padding: 90px 0px;
+    background-color: lightgray;
 }
 
 .about_box {
@@ -569,15 +550,11 @@ form.example::after {
     text-align: center;
 }
 
-/* about section end */
-
-/* hosting section start */
-
 .hosting_section {
     width: 100%;
     float: left;
     padding: 40px 0px 60px 0px;
-    background-image: url(../images/hosting-bg.png);
+    background-image: url(../images/banner-colores.png);
     height: auto;
     background-size: 100% 100%;
 }
@@ -628,10 +605,6 @@ form.example::after {
     color: #252525;
     background-color: #ffffff;
 }
-
-/* hosting section end */
-
-/* pricing section start */
 
 .pricing_section{
     width: 100%;
@@ -774,10 +747,6 @@ form.example::after {
     background-color: #1E90FF;
 }
 
-/* pricing section start */
-
-/* services section start */
-
 .services_section {
     width: 100%;
     float: left;
@@ -889,11 +858,6 @@ form.example::after {
     color: #8f9091;
 }
 
-
-/* services section end */
-
-/* testimonial section start */
-
 .testimonial_section {
     width: 100%;
     float: left;
@@ -969,9 +933,6 @@ form.example::after {
     bottom: -50px;
 }
 
-/* testimonial section end */
-
-/* newslatter section start */
 
 .newslatter_section {
     width: 100%;
@@ -995,8 +956,6 @@ input.mail {
     padding: 10px 15px !important;
 }
 
-/* newslatter section end */
-/* contact section start */
 
 .contact_section {
     width: 100%;
@@ -1082,12 +1041,6 @@ textarea#comment.massage-bt::placeholder {
     color: #fefefd;
     background-color: #252525;
 }
-
-
-/* contact section end */
-
-
-/* footer section start */
 
 .footer_section{
     width: 100%;
@@ -1213,10 +1166,6 @@ p.dummy_text {
     padding-right: 10px;
 }
 
-/* footer section end */
-
-/* copyright section start */
-
 .copyright_section {
     width: 100%;
     float: left;
@@ -1241,9 +1190,6 @@ p.dummy_text {
     color: #1E90FF;
 }
 
-
-/* copyright section end */
-
 .margin_top90 {
     margin-top: 90px;
 }
@@ -1255,7 +1201,7 @@ p.dummy_text {
     background-color: #ffffff;
     color: #000;
     padding: 1px; 
-    overflow: hidden; /* Muy importante para ocultar el texto fuera del área visible */
+    overflow: hidden;
     white-space: nowrap;
     box-sizing: border-box; 
     font-size: 17px;
@@ -1281,7 +1227,6 @@ p.dummy_text {
     100% { transform: translateX(-100%); }
 }
 
-/* Ajustes para el menú de navegación */
 .navbar {
    width: 100%;
    float: left;
@@ -1310,14 +1255,19 @@ p.dummy_text {
     margin: 10px 40px 0px 0px;
     border-radius: 5px;
     text-align: center;
+    font-family: sans-serif;
 }
 
 .form-inline {
-    margin-bottom: 10px; /* Espacio entre los íconos y el menú */
+    margin-bottom: 10px;
 }
 
 .form-inline a {
     color: #000;
     font-size: 24px;
     margin-left: 15px;
+}
+
+.carousel-bg-gray {
+    background-color: #f0f0f0; /* Light gray */
 }
