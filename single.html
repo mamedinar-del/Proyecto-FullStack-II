@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+      <title>Control Inalámbrico - Level-Up Gamer 🎮</title>
+      <meta name="description" content="Control inalámbrico para consolas con retroalimentación háptica y gatillos adaptables.">
+      <meta name="author" content="Level-Up Gamer">
+
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" href="css/responsive.css">
+      <link rel="shortcut icon" href="images/LogoTienda-SinFondo.png" type="image/x-icon">
+      <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Sen:400,700,800&display=swap" rel="stylesheet">
+      <!-- Font Awesome 6 (Free) -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+   </head>
+   <body>
+      <!-- Botón de WhatsApp flotante -->
+      <link rel="stylesheet" href="css/whatsapp.css">
+      <a href="https://api.whatsapp.com/send?phone=56975260485&text=¡Hola! Level-Up Quiero contactar al servicio técnico para recibir ayuda con mi problema." class="float" target="_blank">
+         <i class="fab fa-whatsapp my-float"></i>
+      </a>
+
+      <!-- Header -->
+      <header class="header_section">
+         <div class="logo-container">
+            <a class="navbar-brand" href="index.html"><img src="images/LogoTienda-SinFondo-125x125.png" alt="Level-Up Gamer"></a>
+         </div>
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav me-auto">
+                     <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                     <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+                     <li class="nav-item"><a class="nav-link" href="#ofertas">Ofertas</a></li>
+                     <li class="nav-item"><a class="nav-link" href="#servicio-tecnico">Servicio Técnico</a></li>
+                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                  </ul>
+                  <div class="d-flex">
+                     <a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-user"></i></a>
+                     <a href="#" class="btn btn-outline-primary position-relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger contador-carrito" style="display: none;">0</span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </nav>
+      </header>
+
+      <!-- Contenido principal -->
+      <main class="py-5">
+         <div class="container">
+            <nav aria-label="breadcrumb" class="mb-4">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                  <li class="breadcrumb-item"><a href="#productos">Productos</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Control Inalámbrico</li>
+               </ol>
+            </nav>
+
+            <div class="row">
+               <!-- Galería de imágenes -->
+               <div class="col-lg-6">
+                  <div class="product-gallery mb-4">
+                     <div class="main-image mb-3">
+                        <img src="images/producto1.jpg" class="img-fluid rounded-3" alt="Control Inalámbrico" id="mainImage">
+                     </div>
+                     <div class="thumbnail-container d-flex">
+                        <div class="thumbnail-item me-2">
+                           <img src="images/producto1-imagen2.jpg" class="img-thumbnail" alt="Imagen 2" onclick="changeImage(this)">
+                        </div>
+                        <div class="thumbnail-item me-2">
+                           <img src="images/producto1-imagen3.jpg" class="img-thumbnail" alt="Imagen 3" onclick="changeImage(this)">
+                        </div>
+                        <div class="thumbnail-item">
+                           <img src="images/producto1-imagen4.jpg" class="img-thumbnail" alt="Imagen 4" onclick="changeImage(this)">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Información del producto -->
+               <div class="col-lg-6">
+                  <h1 class="display-5 fw-bold mb-3">Control Inalámbrico para PS5</h1>
+                  <div class="d-flex align-items-center mb-3">
+                     <div class="me-3">
+                        <span class="text-warning">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="far fa-star"></i>
+                        </span>
+                        <span class="ms-1 text-muted">(24 reseñas)</span>
+                     </div>
+                     <span class="badge bg-success">En stock</span>
+                  </div>
+
+                  <div class="mb-4">
+                     <h2 class="text-primary fw-bold">$59.990</h2>
+                     <p class="text-muted">en 12x $4.999 sin interés</p>
+                  </div>
+
+                  <div class="mb-4">
+                     <h5 class="mb-3">Descripción</h5>
+                     <p>Experimenta una inmersión más profunda con el control inalámbrico para PS5. Con retroalimentación háptica, gatillos adaptables y un diseño ergonómico, este control redefine la forma en que juegas.</p>
+                     <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i> Retroalimentación háptica avanzada</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Gatillos adaptables</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Micrófono integrado</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Batería recargable</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Conector para auriculares de 3.5mm</li>
+                     </ul>
+                  </div>
+
+                  <div class="mb-4">
+                     <div class="d-flex align-items-center mb-3">
+                        <span class="me-3">Cantidad:</span>
+                        <div class="input-group quantity-selector" style="width: 120px;">
+                           <button class="btn btn-outline-secondary" type="button" onclick="decreaseQuantity()">-</button>
+                           <input type="number" class="form-control text-center" value="1" min="1" id="quantity">
+                           <button class="btn btn-outline-secondary" type="button" onclick="increaseQuantity()">+</button>
+                        </div>
+                     </div>
+
+                     <div class="d-grid gap-2 d-md-flex">
+                        <button class="btn btn-primary btn-lg flex-grow-1 me-md-2">
+                           <i class="fas fa-shopping-cart me-2"></i>Agregar al carrito
+                        </button>
+                        <button class="btn btn-outline-secondary btn-lg">
+                           <i class="far fa-heart"></i>
+                        </button>
+                     </div>
+                  </div>
+
+                  <div class="border-top pt-3">
+                     <div class="d-flex align-items-center mb-2">
+                        <span class="me-2"><i class="fas fa-truck text-primary"></i></span>
+                        <div>
+                           <span class="fw-bold">Envío:</span> 
+                           <span class="text-muted">Gratis para compras sobre $49.990</span>
+                        </div>
+                     </div>
+                     <div class="d-flex align-items-center">
+                        <span class="me-2"><i class="fas fa-undo text-primary"></i></span>
+                        <div>
+                           <span class="fw-bold">Devoluciones:</span> 
+                           <span class="text-muted">30 días de garantía de devolución</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Pestañas de detalles -->
+            <div class="row mt-5">
+               <div class="col-12">
+                  <ul class="nav nav-tabs" id="productTabs" role="tablist">
+                     <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="especificaciones-tab" data-bs-toggle="tab" data-bs-target="#especificaciones" type="button" role="tab" aria-controls="especificaciones" aria-selected="true">Especificaciones</button>
+                     </li>
+                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="opiniones-tab" data-bs-toggle="tab" data-bs-target="#opiniones" type="button" role="tab" aria-controls="opiniones" aria-selected="false">Opiniones (24)</button>
+                     </li>
+                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="envio-tab" data-bs-toggle="tab" data-bs-target="#envio" type="button" role="tab" aria-controls="envio" aria-selected="false">Envío y Devoluciones</button>
+                     </li>
+                  </ul>
+                  <div class="tab-content p-3 border border-top-0 rounded-bottom" id="productTabsContent">
+                     <div class="tab-pane fade show active" id="especificaciones" role="tabpanel" aria-labelledby="especificaciones-tab">
+                        <div class="row">
+                           <div class="col-md-6">
+                              <h5>Características principales</h5>
+                              <ul class="list-unstyled">
+                                 <li><strong>Marca:</strong> Sony</li>
+                                 <li><strong>Modelo:</strong> DualSense</li>
+                                 <li><strong>Color:</strong> Blanco</li>
+                                 <li><strong>Plataforma:</strong> PlayStation 5</li>
+                                 <li><strong>Conexión:</strong> Inalámbrico (Bluetooth) / USB-C</li>
+                              </ul>
+                           </div>
+                           <div class="col-md-6">
+                              <h5>Especificaciones técnicas</h5>
+                              <ul class="list-unstyled">
+                                 <li><strong>Batería:</strong> Batería recargable de iones de litio</li>
+                                 <li><strong>Duración de batería:</strong> Hasta 12 horas</li>
+                                 <li><strong>Puertos:</strong> USB-C, conector para auriculares de 3.5mm</li>
+                                 <li><strong>Dimensiones:</strong> 16 x 10.6 x 6.6 cm</li>
+                                 <li><strong>Peso:</strong> 280g</li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="tab-pane fade" id="opiniones" role="tabpanel" aria-labelledby="opiniones-tab">
+                        <div class="mb-4">
+                           <div class="d-flex justify-content-between align-items-center mb-3">
+                              <h5 class="mb-0">Opiniones de clientes</h5>
+                              <button class="btn btn-primary btn-sm">Escribir reseña</button>
+                           </div>
+                           <div class="d-flex align-items-center mb-3">
+                              <div class="me-3">
+                                 <span class="display-4 fw-bold">4.2</span>
+                                 <span class="text-muted">/5</span>
+                              </div>
+                              <div>
+                                 <div class="mb-1">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                 </div>
+                                 <div class="text-muted">Basado en 24 opiniones</div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="border-top pt-3">
+                           <!-- Aquí irían las opiniones de los clientes -->
+                           <div class="text-center py-4">
+                              <p class="text-muted">Sé el primero en escribir una reseña</p>
+                              <button class="btn btn-primary">Escribir reseña</button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="tab-pane fade" id="envio" role="tabpanel" aria-labelledby="envio-tab">
+                        <h5>Envío</h5>
+                        <p>Ofrecemos envío gratuito para todos los pedidos superiores a $49.990. Los pedidos se envían en un plazo de 1-2 días hábiles.</p>
+                        <p>Los plazos de entrega estimados son de 2-5 días hábiles para la Región Metropolitana y 5-10 días hábiles para regiones.</p>
+                        
+                        <h5 class="mt-4">Devoluciones</h5>
+                        <p>Aceptamos devoluciones dentro de los 30 días posteriores a la recepción del pedido. El producto debe estar en su embalaje original y en condiciones de reventa.</p>
+                        <p>Para iniciar una devolución, por favor contáctanos a través de nuestro formulario de contacto o al correo soporte@levelupgamer.cl</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Productos relacionados -->
+            <section class="related-products mt-5 pt-4">
+               <div class="d-flex justify-content-between align-items-center mb-4">
+                  <h3 class="mb-0">Productos relacionados</h3>
+                  <a href="#" class="btn btn-outline-primary">Ver todos</a>
+               </div>
+               <div class="row">
+                  <div class="col-md-3 col-6 mb-4">
+                     <div class="card h-100">
+                        <img src="images/producto-relacionado-1.jpg" class="card-img-top" alt="Estación de carga">
+                        <div class="card-body">
+                           <h6 class="card-title">Estación de carga para control PS5</h6>
+                           <p class="card-text text-primary fw-bold">$26.990</p>
+                           <button class="btn btn-sm btn-outline-primary w-100">Agregar al carrito</button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-3 col-6 mb-4">
+                     <div class="card h-100">
+                        <img src="images/producto-relacionado-2.jpg" class="card-img-top" alt="Auriculares inalámbricos">
+                        <div class="card-body">
+                           <h6 class="card-title">Auriculares inalámbricos PS5</h6>
+                           <p class="card-text text-primary fw-bold">$149.990</p>
+                           <button class="btn btn-sm btn-outline-primary w-100">Agregar al carrito</button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-3 col-6 mb-4">
+                     <div class="card h-100">
+                        <img src="images/producto-relacionado-3.jpg" class="card-img-top" alt="Cable USB-C">
+                        <div class="card-body">
+                           <h6 class="card-title">Cable USB-C 3m</h6>
+                           <p class="card-text text-primary fw-bold">$7.990</p>
+                           <button class="btn btn-sm btn-outline-primary w-100">Agregar al carrito</button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-3 col-6 mb-4">
+                     <div class="card h-100">
+                        <img src="images/producto-relacionado-4.jpg" class="card-img-top" alt="Death Stranding 2">
+                        <div class="card-body">
+                           <h6 class="card-title">Death Stranding 2: On The Beach</h6>
+                           <p class="card-text text-primary fw-bold">$12.990</p>
+                           <button class="btn btn-sm btn-outline-primary w-100">Agregar al carrito</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer-section">
+         <div class="container">
+            <div class="row g-4">
+               <div class="col-lg-4 col-md-6">
+                  <div class="footer-widget">
+                     <div class="footer-logo mb-3">
+                        <img src="images/LogoTienda-SinFondo-125x125.png" alt="Level-Up Gamer" class="img-fluid" style="max-height: 80px;">
+                     </div>
+                     <p class="mb-3">Tu tienda gamer de confianza con los mejores precios y la mejor atención al cliente. Ofrecemos productos de calidad y servicio técnico especializado.</p>
+                     <div class="social-links">
+                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-tiktok"></i></a>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="col-lg-2 col-md-6">
+                  <div class="footer-widget">
+                     <h5 class="widget-title">Enlaces Rápidos</h5>
+                     <ul class="footer-links">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Ofertas</a></li>
+                        <li><a href="#">Nuevos Lanzamientos</a></li>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Contáctanos</a></li>
+                     </ul>
+                  </div>
+               </div>
+               
+               <div class="col-lg-3 col-md-6">
+                  <div class="footer-widget">
+                     <h5 class="widget-title">Categorías</h5>
+                     <ul class="footer-links">
+                        <li><a href="#">Videojuegos</a></li>
+                        <li><a href="#">Consolas</a></li>
+                        <li><a href="#">Accesorios</a></li>
+                        <li><a href="#">Figuras de Acción</a></li>
+                        <li><a href="#">Merchandising</a></li>
+                        <li><a href="#">Juegos de Mesa</a></li>
+                     </ul>
+                  </div>
+               </div>
+               
+               <div class="col-lg-3 col-md-6">
+                  <div class="footer-widget">
+                     <h5 class="widget-title">Contacto</h5>
+                     <ul class="contact-info">
+                        <li class="d-flex mb-2">
+                           <i class="fas fa-map-marker-alt me-3 mt-1"></i>
+                           <span>Antonio Varas 666, Santiago, Chile</span>
+                        </li>
+                        <li class="d-flex mb-2">
+                           <i class="fas fa-phone-alt me-3 mt-1"></i>
+                           <span>+56 9 7526 0485</span>
+                        </li>
+                        <li class="d-flex mb-2">
+                           <i class="fas fa-envelope me-3 mt-1"></i>
+                           <span>contacto@levelupgamer.cl</span>
+                        </li>
+                        <li class="d-flex">
+                           <i class="fas fa-clock me-3 mt-1"></i>
+                           <span>Lun-Vie: 10:00 - 20:00<br>Sáb: 11:00 - 19:00</span>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="footer-bottom mt-4 pt-4 border-top border-light">
+               <div class="row align-items-center">
+                  <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                     <p class="mb-0">&copy; 2023 Level-Up Gamer. Todos los derechos reservados.</p>
+                  </div>
+                  <div class="col-md-6 text-center text-md-end">
+                     <div class="payment-methods">
+                        <span class="me-2">Métodos de pago:</span>
+                        <i class="fab fa-cc-visa me-2"></i>
+                        <i class="fab fa-cc-mastercard me-2"></i>
+                        <i class="fab fa-cc-amex me-2"></i>
+                        <i class="fab fa-cc-paypal me-2"></i>
+                        <i class="fas fa-university"></i>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+
+      <!-- Scripts -->
+      <script src="js/jquery-3.6.0.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script>
+         // Función para cambiar la imagen principal al hacer clic en las miniaturas
+         function changeImage(element) {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = element.src;
+            mainImage.alt = element.alt;
+         }
+
+         // Funciones para el contador de cantidad
+         function increaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+         }
+
+         function decreaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            if (parseInt(quantityInput.value) > 1) {
+               quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+         }
+
+         // Inicializar tooltips de Bootstrap
+         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+         });
+      </script>
+   </body>
+</html>

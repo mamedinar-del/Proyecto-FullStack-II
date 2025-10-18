@@ -69,6 +69,13 @@ function configurarEventos() {
             e.preventDefault();
             const button = e.target.closest('.btn-vista-rapida');
             const productoId = parseInt(button.getAttribute('data-producto-id'));
+            
+            // Redirigir a single.html para el producto 1
+            if (productoId === 1) {
+                window.location.href = 'single.html';
+                return;
+            }
+            
             const producto = Object.values(productos).find(p => p.id === productoId);
             
             if (producto) {
