@@ -67,130 +67,302 @@
                         <a class="nav-link" href="#">Blog</a>
                      </li>
                   </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                     <a href="inicio-sesion.html"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
-                     <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                  <!-- Buscador -->
+                  <form class="form-inline my-2 my-lg-0 mx-3 navbar-search">
+                     <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Buscar productos..." aria-label="Buscar">
+                        <button class="btn btn-search" type="submit">
+                           <i class="fa fa-search"></i>
+                        </button>
+                     </div>
                   </form>
+                  <!-- Fin Buscador -->
+                  <div class="d-flex align-items-center">
+                     <a href="inicio-sesion.html" class="nav-icon"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                     <a href="#" class="nav-icon ms-3"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                  </div>
                </div>
             </div>
          </nav>
-         <div class="banner_section layout_padding carousel-bg-gray">
-            <div id="my_slider" class="carousel slide" data-ride="carousel">
+         <!-- Carrusel Simple -->
+         <div class="simple-carousel">
+            <div id="simpleCarousel" class="carousel slide" data-bs-ride="carousel">
+               <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#simpleCarousel" data-bs-slide-to="0" class="active"></button>
+                  <button type="button" data-bs-target="#simpleCarousel" data-bs-slide-to="1"></button>
+                  <button type="button" data-bs-target="#simpleCarousel" data-bs-slide-to="2"></button>
+               </div>
                <div class="carousel-inner">
                   <div class="carousel-item active">
-                     <div class="container">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <h1 class="banner_taital">Ya disponible<br>Catan El juego</h1>
-                              <div class="read_bt"><a href="#">Comprar</a></div>
-                           </div>
-                           <div class="col-md-6">
-                              <div class="banner_img"><img src="images/catan-500x500.png"></div>
-                           </div>
+                     <div class="carousel-content d-flex">
+                        <div class="carousel-text text-start me-5">
+                           <h2 class="display-4 fw-bold mb-3">Nuevos Lanzamientos</h2>
+                           <p class="lead mb-4">Descubre los juegos más esperados del año con las mejores ofertas exclusivas para nuestros clientes.</p>
+                           <a href="#" class="btn btn-primary btn-lg px-4">Ver más</a>
+                        </div>
+                        <div class="carousel-image">
+                           <img src="images/god-of-war-ragnarok.png" alt="Juegos" class="img-fluid">
                         </div>
                      </div>
                   </div>
                   <div class="carousel-item">
-                     <div class="container">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <h1 class="banner_taital">Compra ya <br>PlayStation 5 Slim <br>Edición Disco</h1>
-                              <div class="read_bt"><a href="#">Comprar</a></div>
-                           </div>
-                           <div class="col-md-6">
-                              <div class="banner_img"><img src="images/ps5-caja-500x500.png"></div>
-                           </div>
+                     <div class="carousel-content d-flex">
+                        <div class="carousel-text text-start me-5">
+                           <h2 class="display-4 fw-bold mb-3">Consolas en Oferta</h2>
+                           <p class="lead mb-4">Las mejores ofertas en consolas de última generación con garantía oficial y envío gratuito.</p>
+                           <a href="#" class="btn btn-primary btn-lg px-4">Ver ofertas</a>
+                        </div>
+                        <div class="carousel-image">
+                           <img src="images/ps5-caja-500x500.png" alt="Consolas" class="img-fluid">
                         </div>
                      </div>
                   </div>
                   <div class="carousel-item">
-                     <div class="container">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <h1 class="banner_taital">Hecha un vistazo a nuestro<br>catálogo completo</h1>
-                              <div class="read_bt"><a href="productos.html">Ver</a></div>
-                           </div>
-                           <div class="col-md-6">
-                              <div class="banner_img"><img src=""></div>
-                           </div>
+                     <div class="carousel-content d-flex">
+                        <div class="carousel-text text-start me-5">
+                           <h2 class="display-4 fw-bold mb-3">Accesorios Gaming</h2>
+                           <p class="lead mb-4">Mejora tu experiencia de juego con nuestros accesorios de alta calidad y rendimiento.</p>
+                           <a href="#" class="btn btn-primary btn-lg px-4">Explorar</a>
+                        </div>
+                        <div class="carousel-image">
+                           <img src="images/gaming-accessories.png" alt="Accesorios" class="img-fluid">
                         </div>
                      </div>
                   </div>
                </div>
-               <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
-               <i class="fa fa-angle-left"></i>
-               </a>
-               <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
-               <i class="fa fa-angle-right"></i>
-               <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-               <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-               <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-               </a>
-            </div>
-         </div>
-         </div>
-      <div class="domain_section">
-         <div class="container">
-            <div class="domain_box">
-               <div class="domain_rate">
-                  <ul>
-                     <li><a href="#"><span style="color: #1E90FF;">Videojuegos</span></a></li>
-                     <li><a href="#"><span style="color: #1E90FF;">Consolas</span></a></li>
-                     <li><a href="#"><span style="color: #1E90FF;">Computadores</span></a></li>
-                     <li><a href="#"><span style="color: #1E90FF;">Juegos de Mesa</span></a></li>
-                     <li><a href="#"><span style="color: #1E90FF;">Accesorios</span></a></li>
-                     <li><a href="#"><span style="color: #1E90FF;">Otros</span></a></li>
-                  </ul>
-               </div>
-               <div class="domain_main">
-                  <form class="example" action="#">
-                     <input type="text" placeholder="Buscar en la tienda..." name="Buscar en la tienda...">
-                     <button type="Buscar">Buscar</button>
-                  </form>
-               </div>
+               <button class="carousel-control-prev" type="button" data-bs-target="#simpleCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+               </button>
+               <button class="carousel-control-next" type="button" data-bs-target="#simpleCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+               </button>
             </div>
          </div>
       </div>
-      <div class="about_section layout_padding">
+         </div>
+      <!-- Sección de Productos -->
+      <section id="productos" class="py-5 bg-light">
          <div class="container">
-            <div class="row">
-               <div class="col-md-4">
-                  <div class="about_box">
-                     <div class="icon_1"><img src=""></div>
-                     <h3 class="faster_text">Título de juego</h3>
-                     <p class="lorem_text">Descripcion de juego</p>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="about_box">
-                     <div class="icon_1"><img src=""></div>
-                     <h3 class="faster_text">Título de juego</h3>
-                     <p class="lorem_text">Descripcion de juego</p>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="about_box">
-                     <div class="icon_1"><img src=""></div>
-                     <h3 class="faster_text">Título de juego</h3>
-                     <p class="lorem_text">Descripcion de juego</p>
-                  </div>
-               </div>
+            <div class="section-title text-center mb-5">
+               <h2 class="mb-3">Productos Destacados</h2>
+               <p>Descubre nuestras mejores ofertas en videojuegos y accesorios</p>
+            </div>
+            <div class="row productos-container">
+               <!-- Los productos se cargarán aquí dinámicamente desde productos.js -->
             </div>
          </div>
-      </div>
+      </section>
 
-      <div class="hosting_section layout_padding">
+      <!-- Sección de Servicio Técnico -->
+      <section id="servicio-tecnico">
          <div class="container">
-            <div class="row">
-               <div class="col-md-6">
-                  <h1 class="hosting_taital">SERVICIO TÉCNICO</h1>
-                  <p class="hosting_text">¡Bienvenido a Level-Up Gamer! Somos tu servicio técnico especializado en reparación, mantenimiento y optimización de consolas y PC gaming. Con técnicos certificados y apasionados por los videojuegos, entendemos lo importante que es para ti tener tu equipo siempre en perfecto estado. </p>
-                  <div class="click_bt"><a href="#">Agenda acá</a></div>
+            <div class="row align-items-center">
+               <div class="col-lg-6 mb-5 mb-lg-0">
+                  <div class="pe-lg-5">
+                     <h2 class="display-4 fw-bold mb-4">Servicio Técnico Especializado</h2>
+                     <p class="lead mb-4">¿Problemas con tus dispositivos? Nuestro equipo de expertos está listo para ayudarte con reparaciones rápidas y confiables.</p>
+                     
+                     <div class="servicio-lista mb-5">
+                        <div class="d-flex align-items-center mb-3">
+                           <div class="me-3">
+                              <i class="fas fa-check-circle fa-lg"></i>
+                           </div>
+                           <p class="mb-0">Reparación de consolas y controles</p>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                           <div class="me-3">
+                              <i class="fas fa-check-circle fa-lg"></i>
+                           </div>
+                           <p class="mb-0">Diagnóstico gratuito</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                           <div class="me-3">
+                              <i class="fas fa-check-circle fa-lg"></i>
+                           </div>
+                           <p class="mb-0">Garantía por escrito en todas las reparaciones</p>
+                        </div>
+                     </div>
+                     
+                     <button id="btn-agendar-servicio" class="btn btn-outline-light btn-lg px-5 py-3 fw-bold">
+                        <i class="fas fa-calendar-alt me-2"></i>Agendar Servicio
+                     </button>
+                  </div>
                </div>
-               <div class="col-md-6">
-                  <div class="hosting_img"><img src="images/banner-colores.png"></div>
+               <div class="col-lg-6">
+                  <div class="servicio-imagen">
+                     <img src="images/servicio-tecnico.jpg" alt="Servicio Técnico" class="img-fluid">
+                  </div>
                </div>
             </div>
          </div>
-      </div>
+      </section>
 
+      <!-- Sección de Descuento -->
+      <section id="descuento" class="py-5 position-relative" style="min-height: 500px; display: flex; align-items: center; overflow: hidden;">
+         <!-- Imagen de fondo con position-absolute -->
+         <div class="position-absolute w-100 h-100" style="top: 0; left: 0; z-index: 0;">
+            <img src="images/banner-descuento.png" alt="Oferta de descuento" class="w-100 h-100" style="object-fit: cover;">
+         </div>
+         <!-- Capa superpuesta más clara -->
+         <div class="position-absolute w-100 h-100" style="background: rgba(255, 255, 255, 0.2); top: 0; left: 0; z-index: 1;"></div>
+         <!-- Contenido -->
+         <div class="container position-relative" style="z-index: 2;">
+            <div class="row justify-content-center">
+               <div class="col-lg-8 text-center">
+                  <div class="descuento-contenido p-4 p-lg-5 rounded-3" style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(5px);">
+                     <h2 class="display-5 fw-bold mb-3 text-primary">¡20% DE DESCUENTO EN TU PRIMERA COMPRA!</h2>
+                     <p class="lead mb-4">Suscríbete a nuestro boletín y recibe un código de descuento del 20% para usar en tu próxima compra.</p>
+                     
+                     <form id="form-descuento" class="row g-3 justify-content-center">
+                        <div class="col-md-8">
+                           <div class="input-group">
+                              <input type="email" class="form-control form-control-lg" id="email-descuento" placeholder="Ingresa tu correo electrónico" required>
+                              <button class="btn btn-light btn-lg" type="submit">
+                                 <i class="fas fa-paper-plane me-2"></i>Obtener descuento
+                              </button>
+                           </div>
+                        </div>
+                     </form>
+                     
+                     <div id="codigo-descuento" class="mt-4 d-none">
+                        <div class="p-3 bg-white text-dark rounded-3 d-inline-block border border-primary">
+                           <p class="mb-2 fw-bold text-dark">¡Felicidades! Tu código de descuento es:</p>
+                           <div class="d-flex align-items-center justify-content-center">
+                              <code id="codigo-generado" class="h4 mb-0 me-2 text-primary fw-bold"></code>
+                              <button class="btn btn-sm btn-outline-primary btn-copiar" data-bs-toggle="tooltip" title="Copiar código">
+                                 <i class="far fa-copy"></i>
+                              </button>
+                           </div>
+                           <p class="small mt-2 mb-0">Válido por 7 días</p>
+                        </div>
+                     </div>
+                     
+                     <p class="small mt-4 mb-0 opacity-75">Al suscribirte aceptas recibir ofertas y novedades por correo electrónico.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      
+      <!-- SweetAlert2 para notificaciones -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      
+      <!-- Nuestros archivos JavaScript -->
+      <script src="js/productos.js"></script>
+      <script src="js/descuentos.js"></script>
+      
+      <!-- Inicialización del carrusel -->
+      <script>
+         // Inicialización simple del carrusel
+         document.addEventListener('DOMContentLoaded', function() {
+             var myCarousel = new bootstrap.Carousel(document.querySelector('#simpleCarousel'), {
+                 interval: 5000,
+                 touch: true,
+                 wrap: true
+             });
+             
+             // Añadir clase para activar transiciones después de la carga
+             document.querySelector('#simpleCarousel').classList.add('carousel-transition');
+         });
+       </script>
+
+      <!-- Footer -->
+      <footer class="footer-section">
+         <div class="container">
+            <div class="row g-4">
+               <div class="col-lg-4 col-md-6">
+                  <div class="footer-widget">
+                     <div class="footer-logo mb-3">
+                        <img src="images/LogoTienda-SinFondo-125x125.png" alt="Level-Up Gamer" class="img-fluid" style="max-height: 80px;">
+                     </div>
+                     <p class="mb-3">Tu tienda gamer de confianza con los mejores precios y la mejor atención al cliente. Ofrecemos productos de calidad y servicio técnico especializado.</p>
+                     <div class="social-links">
+                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-tiktok"></i></a>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="col-lg-2 col-md-6">
+                  <div class="footer-widget">
+                     <h5 class="widget-title">Enlaces Rápidos</h5>
+                     <ul class="footer-links">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Ofertas</a></li>
+                        <li><a href="#">Nuevos Lanzamientos</a></li>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Contáctanos</a></li>
+                     </ul>
+                  </div>
+               </div>
+               
+               <div class="col-lg-3 col-md-6">
+                  <div class="footer-widget">
+                     <h5 class="widget-title">Categorías</h5>
+                     <ul class="footer-links">
+                        <li><a href="#">Videojuegos</a></li>
+                        <li><a href="#">Consolas</a></li>
+                        <li><a href="#">Accesorios</a></li>
+                        <li><a href="#">Figuras de Acción</a></li>
+                        <li><a href="#">Merchandising</a></li>
+                        <li><a href="#">Juegos de Mesa</a></li>
+                     </ul>
+                  </div>
+               </div>
+               
+               <div class="col-lg-3 col-md-6">
+                  <div class="footer-widget">
+                     <h5 class="widget-title">Contacto</h5>
+                     <ul class="contact-info">
+                        <li class="d-flex mb-2">
+                           <i class="fas fa-map-marker-alt me-3 mt-1"></i>
+                           <span>Av. Principal 1234, Santiago, Chile</span>
+                        </li>
+                        <li class="d-flex mb-2">
+                           <i class="fas fa-phone-alt me-3 mt-1"></i>
+                           <span>+56 9 1234 5678</span>
+                        </li>
+                        <li class="d-flex mb-2">
+                           <i class="fas fa-envelope me-3 mt-1"></i>
+                           <span>contacto@levelupgamer.cl</span>
+                        </li>
+                        <li class="d-flex">
+                           <i class="fas fa-clock me-3 mt-1"></i>
+                           <span>Lun-Vie: 10:00 - 20:00<br>Sáb: 11:00 - 19:00</span>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="footer-bottom mt-4 pt-4 border-top border-light">
+               <div class="row align-items-center">
+                  <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                     <p class="mb-0">&copy; 2023 Level-Up Gamer. Todos los derechos reservados.</p>
+                  </div>
+                  <div class="col-md-6 text-center text-md-end">
+                     <div class="payment-methods">
+                        <span class="me-2">Métodos de pago:</span>
+                        <i class="fab fa-cc-visa me-2"></i>
+                        <i class="fab fa-cc-mastercard me-2"></i>
+                        <i class="fab fa-cc-amex me-2"></i>
+                        <i class="fab fa-cc-paypal me-2"></i>
+                        <i class="fas fa-university"></i>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+   </div>
+   </body>
+</html>
