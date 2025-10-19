@@ -96,7 +96,6 @@ header {
     font-size: 12px;
 }
 
-/* Filtros */
 .filters {
     background-color: white;
     padding: 15px;
@@ -228,7 +227,6 @@ footer {
     text-decoration: underline;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
