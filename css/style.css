@@ -20,7 +20,6 @@ html {
     overflow-x: hidden;
 }
 
-/* Roboto font is now imported in the HTML head */
 
 body {
     color: #666666;
@@ -31,12 +30,10 @@ body {
     overflow-x: hidden;
 }
 
-/* Ensure all text elements use Roboto */
 body, body *:not(i):not(.fa):not([class^='fa']):not([class*='fa ']) {
     font-family: 'Roboto', sans-serif !important;
 }
 
-/* Reset font for icons */
 .fa, .fas, .far, .fab {
     font-family: 'Font Awesome 6 Free' !important;
 }
@@ -1410,7 +1407,6 @@ font-size: 0.9rem;
     margin-right: 8px;
 }
 
-/* Responsive styles */
 @media (max-width: 991px) {
     .producto-card {
         margin-bottom: 30px;
@@ -1524,7 +1520,6 @@ font-size: 0.9rem;
     margin-right: 5px;
 }
 
-/* Responsive */
 @media (max-width: 991.98px) {
     .productos-section {
         padding: 40px 0;
@@ -1554,7 +1549,7 @@ font-size: 0.9rem;
     position: relative;
     text-align: center;
     background-color: #fff;
-    z-index: 1030; /* Mayor que el z-index del carrusel */
+        z-index: 1030;
 }
 
 .navbar {
@@ -2487,7 +2482,7 @@ opacity: 0.6;
     font-weight: bold;
 }
 
-/* Estilos modernos para la barra de búsqueda */
+/* Estilo barra de búsqueda */
 .header_section .navbar-search .input-group {
     width: 100%;
     max-width: 1000px;
