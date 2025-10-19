@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event.stopPropagation();
 
         if (form.checkValidity()) {
-            // Crear objeto con los datos del servicio
+            
             const servicio = {
                 nombre: document.getElementById('nombre').value,
                 telefono: document.getElementById('telefono').value,
@@ -26,10 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 fechaSolicitud: new Date().toISOString()
             };
 
-            // Aquí podrías enviar los datos a un servidor
             console.log('Datos del servicio:', servicio);
 
-            // Mostrar mensaje de éxito
             Swal.fire({
                 title: '¡Solicitud enviada!',
                 text: 'Hemos recibido tu solicitud de servicio técnico. Nos pondremos en contacto contigo pronto para confirmar la cita.',
