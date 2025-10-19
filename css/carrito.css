@@ -1,4 +1,4 @@
-/* Estilos del contador del carrito */
+
 .contador-carrito {
     position: absolute;
     top: -8px;
@@ -263,7 +263,6 @@ body.carrito-abierto .carrito-overlay {
     padding: 0;
 }
 
-/* Ajustes para móviles */
 @media (max-width: 576px) {
     #carrito-sidebar {
         width: 100%;
