@@ -22,7 +22,7 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
    </head>
-   <body>
+   <body class="d-flex flex-column min-vh-100">
       <!-- Botón de WhatsApp flotante -->
       <link rel="stylesheet" href="css/whatsapp.css">
       <a href="https://api.whatsapp.com/send?phone=56975260485&text=¡Hola! Level-Up Quiero contactar al servicio técnico para recibir ayuda con mi problema." class="float" target="_blank">
@@ -30,37 +30,92 @@
       </a>
 
       <!-- Header -->
-      <header class="header_section">
-         <div class="logo-container">
-            <a class="navbar-brand" href="index.html"><img src="images/LogoTienda-SinFondo-125x125.png" alt="Level-Up Gamer"></a>
-         </div>
-         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-               </button>
-               <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav me-auto">
-                     <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                     <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
-                     <li class="nav-item"><a class="nav-link" href="#ofertas">Ofertas</a></li>
-                     <li class="nav-item"><a class="nav-link" href="#servicio-tecnico">Servicio Técnico</a></li>
-                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                  </ul>
-                  <div class="d-flex">
-                     <a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-user"></i></a>
-                     <a href="#" class="btn btn-outline-primary position-relative">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger contador-carrito" style="display: none;">0</span>
-                     </a>
+      <header class="header-area" style="width: 100%;">
+         <div class="container-fluid px-0">
+            <div class="row g-0 justify-content-center">
+               <div class="col-12">
+                  <div class="d-flex justify-content-between align-items-center py-3" style="max-width: 1800px; margin: 0 auto; padding: 0 2rem;">
+                     <!-- Logo -->
+                     <div class="logo" style="margin-right: 20px;">
+                        <a href="index.html">
+                           <img src="images/LogoTienda-SinFondo.png" alt="Level-Up Gamer" style="height: 90px; transition: all 0.3s ease;">
+                        </a>
+                     </div>
+
+                     <!-- Barra de búsqueda -->
+                     <div class="w-100" style="max-width: 900px; margin: 0 40px;">
+                        <div class="input-group" style="height: 50px;">
+                           <input type="text" class="form-control" placeholder="Buscar productos..." style="height: 100%; font-size: 1.1rem;">
+                           <button class="btn btn-search" type="button" style="height: 100%; min-width: 60px;">
+                              <i class="fas fa-search"></i>
+                           </button>
+                        </div>
+                     </div>
+
+                     <!-- Iconos de usuario y carrito -->
+                     <div class="d-flex align-items-center justify-content-end">
+                        <!-- Menú de Usuario -->
+                        <div class="dropdown">
+                           <button class="btn btn-light text-dark dropdown-toggle custom-account-btn" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" title="Iniciar Sesión">
+                              <i class="fas fa-user"></i>
+                           </button>
+                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                              <li><a class="dropdown-item" href="inicio-sesion.html">Iniciar Sesión</a></li>
+                              <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
+                           </ul>
+                        </div>
+
+                        <!-- Carrito sin contador -->
+                        <a href="#" class="btn btn-outline-secondary ms-4" title="Carrito de compras">
+                           <i class="fas fa-shopping-cart"></i>
+                        </a>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler d-lg-none ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                           <span class="navbar-toggler-icon"></span>
+                        </button>
+                     </div>
                   </div>
                </div>
             </div>
-         </nav>
+
+            <!-- Bottom Row: Navigation Menu -->
+            <div class="row">
+               <div class="col-12">
+                  <!-- Navegación Principal -->
+                  <nav class="navbar navbar-expand-lg navbar-light bg-white py-0 border-top">
+                     <div class="container-fluid px-5">
+                        <div class="collapse navbar-collapse" id="mainNavbar">
+                           <ul class="navbar-nav w-100 justify-content-between">
+                              <li class="nav-item">
+                                 <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Inicio</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="about-us.html"><i class="fas fa-info-circle me-1"></i> Sobre Nosotros</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="servicio-tecnico.html"><i class="fas fa-tools me-1"></i> Servicio Técnico</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="#"><i class="fas fa-truck me-1"></i> Envíos</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="#"><i class="fas fa-blog me-1"></i> Blog</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="#contacto"><i class="fas fa-headset me-1"></i> Contacto</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+            </div>
+         </div>
       </header>
 
-      <!-- Contenido principal -->
-      <main class="py-5">
+      <!-- Main Content -->
+      <div class="main-content py-5 flex-grow-1">
          <div class="container">
             <nav aria-label="breadcrumb" class="mb-4">
                <ol class="breadcrumb">
@@ -93,19 +148,18 @@
 
                <!-- Información del producto -->
                <div class="col-lg-6">
-                  <h1 class="display-5 fw-bold mb-3">Control Inalámbrico para PS5</h1>
+                  <h1 class="display-5 fw-bold mb-3">Mando Inalámbrico PS5</h1>
                   <div class="d-flex align-items-center mb-3">
                      <div class="me-3">
-                        <span class="text-warning">
+                           <span class="text-warning" id="product-rating">
                            <i class="fas fa-star"></i>
                            <i class="fas fa-star"></i>
                            <i class="fas fa-star"></i>
                            <i class="fas fa-star"></i>
                            <i class="far fa-star"></i>
                         </span>
-                        <span class="ms-1 text-muted">(24 reseñas)</span>
+                              <small class="text-muted">(24 reseñas)</small>
                      </div>
-                     <span class="badge bg-success">En stock</span>
                   </div>
 
                   <div class="mb-4">
@@ -115,7 +169,7 @@
 
                   <div class="mb-4">
                      <h5 class="mb-3">Descripción</h5>
-                     <p>Experimenta una inmersión más profunda con el control inalámbrico para PS5. Con retroalimentación háptica, gatillos adaptables y un diseño ergonómico, este control redefine la forma en que juegas.</p>
+                     <p class="lead mb-4">Mando inalámbrico DualSense para PlayStation 5 con retroalimentación háptica.</p>
                      <ul class="list-unstyled">
                         <li><i class="fas fa-check text-success me-2"></i> Retroalimentación háptica avanzada</li>
                         <li><i class="fas fa-check text-success me-2"></i> Gatillos adaptables</li>
@@ -295,12 +349,13 @@
                      </div>
                   </div>
                </div>
-            </section>
+            </div>
          </div>
-      </main>
+      </div>
+      <!-- End Main Content -->
 
       <!-- Footer -->
-      <footer class="footer-section">
+      <footer class="footer-section mt-auto">
          <div class="container">
             <div class="row g-4">
                <div class="col-lg-4 col-md-6">
@@ -395,6 +450,7 @@
       <!-- Scripts -->
       <script src="js/jquery-3.6.0.min.js"></script>
       <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
       <script>
          // Función para cambiar la imagen principal al hacer clic en las miniaturas
          function changeImage(element) {

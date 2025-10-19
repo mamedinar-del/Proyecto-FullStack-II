@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Servicio Técnico - Level-Up Gamer</title>
+    <!-- Google Fonts - Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/servicio-tecnico.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-area" style="width: 100%;">
+        <div class="container-fluid px-0">
+            <div class="row g-0 justify-content-center">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center py-3" style="max-width: 1800px; margin: 0 auto; padding: 0 2rem;">
+                        <!-- Logo -->
+                        <div class="logo" style="margin-right: 20px;">
+                            <a href="index.html">
+                                <img src="images/LogoTienda-SinFondo.png" alt="Level-Up Gamer" style="height: 90px; transition: all 0.3s ease;">
+                            </a>
+                        </div>
+
+                        <!-- Barra de búsqueda -->
+                        <div class="w-100" style="max-width: 900px; margin: 0 40px;">
+                            <div class="input-group" style="height: 50px;">
+                                <input type="text" class="form-control" placeholder="Buscar productos..." style="height: 100%; font-size: 1.1rem;">
+                                <button class="btn btn-search" type="button" style="height: 100%; min-width: 60px;">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Iconos de usuario y carrito -->
+                        <div class="d-flex align-items-center justify-content-end">
+                            <!-- Menú de Usuario -->
+                            <div class="dropdown">
+                                <button class="btn btn-light text-dark dropdown-toggle custom-account-btn" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" title="Iniciar Sesión">
+                                    <i class="fas fa-user"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                                    <li><a class="dropdown-item" href="inicio-sesion.html">Iniciar Sesión</a></li>
+                                    <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Carrito con contador -->
+                            <div class="position-relative">
+                                <a href="#" class="btn btn-outline-secondary ms-4 carrito-btn" title="Carrito de compras">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span class="contador-carrito">0</span>
+                                </a>
+                            </div>
+
+                            <!-- Mobile Menu Button -->
+                            <button class="navbar-toggler d-lg-none ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Row: Navigation Menu -->
+            <div class="row">
+                <div class="col-12">
+                    <!-- Navegación Principal -->
+                    <nav class="navbar navbar-expand-lg navbar-light bg-white py-0 border-top">
+                        <div class="container-fluid px-5">
+                            <div class="collapse navbar-collapse" id="mainNavbar">
+                                <ul class="navbar-nav w-100 justify-content-between">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Inicio</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="about-us.html"><i class="fas fa-info-circle me-1"></i> Sobre Nosotros</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="servicio-tecnico.html"><i class="fas fa-tools me-1"></i> Servicio Técnico</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-truck me-1"></i> Envíos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-blog me-1"></i> Blog</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-headset me-1"></i> Contacto</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Contacto -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-card">
+                        <div class="contact-header">
+                            <i class="fas fa-tools"></i>
+                            <h2>Agenda tu Servicio Técnico</h2>
+                            <p class="text-muted">Solicita una revisión técnica para tus dispositivos. Completa el formulario y te contactaremos para confirmar la cita.</p>
+                        </div>
+                        
+                        <form id="contactForm" novalidate>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="nombre" class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control form-control-lg" id="nombre" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa tu nombre completo.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <label for="telefono" class="form-label">Teléfono de Contacto</label>
+                                    <input type="tel" class="form-control form-control-lg" id="telefono" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa tu número de teléfono.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control form-control-lg" id="email" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingresa un correo electrónico válido.
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="tipoDispositivo" class="form-label">Tipo de Dispositivo</label>
+                                    <select class="form-select form-select-lg" id="tipoDispositivo" required>
+                                        <option value="" selected disabled>Selecciona un dispositivo</option>
+                                        <option value="consola">Consola de Videojuegos</option>
+                                        <option value="pc">PC Gamer</option>
+                                        <option value="notebook">Notebook Gamer</option>
+                                        <option value="telefono">Teléfono/Celular</option>
+                                        <option value="tablet">Tablet</option>
+                                        <option value="periferico">Periférico (Teclado, Mouse, etc.)</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona un tipo de dispositivo.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <label for="marca" class="form-label">Marca</label>
+                                    <input type="text" class="form-control form-control-lg" id="marca" required>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa la marca del dispositivo.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="fecha" class="form-label">Fecha Preferente</label>
+                                    <input type="date" class="form-control form-control-lg" id="fecha" min="" required>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona una fecha.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <label for="hora" class="form-label">Hora Preferente</label>
+                                    <select class="form-select form-select-lg" id="hora" required>
+                                        <option value="" selected disabled>Selecciona una hora</option>
+                                        <option value="09:00 - 11:00">09:00 - 11:00</option>
+                                        <option value="11:00 - 13:00">11:00 - 13:00</option>
+                                        <option value="13:00 - 15:00">13:00 - 15:00</option>
+                                        <option value="15:00 - 17:00">15:00 - 17:00</option>
+                                        <option value="17:00 - 19:00">17:00 - 19:00</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Por favor selecciona un horario.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="problema" class="form-label">Descripción del Problema</label>
+                                <textarea class="form-control" id="problema" rows="4" placeholder="Describe con el mayor detalle posible el problema que presenta tu dispositivo..." required></textarea>
+                                <div class="form-text">Incluye detalles como: ¿Cuándo comenzó el problema? ¿Qué has intentado para solucionarlo?</div>
+                                <div class="invalid-feedback">
+                                    Por favor describe el problema que presenta tu dispositivo.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4 form-check">
+                                <input type="checkbox" class="form-check-input" id="garantia" value="1">
+                                <label class="form-check-label" for="garantia">Mi dispositivo está en garantía</label>
+                            </div>
+                            
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="submit" class="btn btn-submit">
+                                    <i class="fas fa-calendar-check me-2"></i> Agendar Servicio Técnico
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-widget">
+                        <h5 class="widget-title">Sobre Nosotros</h5>
+                        <p>Level-Up Gamer es tu tienda de videojuegos, consolas y accesorios gamer. Ofrecemos los mejores precios y la mejor atención al cliente.</p>
+                        <div class="social-links mt-3">
+                            <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="me-2"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-widget">
+                        <h5 class="widget-title">Enlaces Rápidos</h5>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="#productos">Productos</a></li>
+                            <li><a href="#ofertas">Ofertas</a></li>
+                            <li><a href="servicio-tecnico.html">Soporte Técnico</a></li>
+                            <li><a href="#">Términos y Condiciones</a></li>
+                            <li><a href="#">Política de Privacidad</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h5 class="widget-title">Categorías</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">Videojuegos</a></li>
+                            <li><a href="#">Consolas</a></li>
+                            <li><a href="#">Accesorios</a></li>
+                            <li><a href="#">Figuras de Acción</a></li>
+                            <li><a href="#">Merchandising</a></li>
+                            <li><a href="#">Juegos de Mesa</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h5 class="widget-title">Contacto</h5>
+                        <ul class="contact-info">
+                            <li class="d-flex mb-2">
+                                <i class="fas fa-map-marker-alt me-3 mt-1"></i>
+                                <span>Antonio Varas 666, Santiago, Chile</span>
+                            </li>
+                            <li class="d-flex mb-2">
+                                <i class="fas fa-phone-alt me-3 mt-1"></i>
+                                <span>+56 9 7526 0485</span>
+                            </li>
+                            <li class="d-flex mb-2">
+                                <i class="fas fa-envelope me-3 mt-1"></i>
+                                <span>contacto@levelupgamer.cl</span>
+                            </li>
+                            <li class="d-flex">
+                                <i class="fas fa-clock me-3 mt-1"></i>
+                                <span>Lun-Vie: 10:00 - 20:00<br>Sáb: 11:00 - 19:00</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom mt-4 pt-4 border-top border-light">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p class="mb-0">&copy; 2023 Level-Up Gamer. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="payment-methods">
+                            <span class="me-2">Métodos de pago:</span>
+                            <i class="fab fa-cc-visa me-2"></i>
+                            <i class="fab fa-cc-mastercard me-2"></i>
+                            <i class="fab fa-cc-amex me-2"></i>
+                            <i class="fab fa-cc-paypal me-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts personalizados -->
+    <script src="js/servicio-tecnico.js"></script>
+</body>
+</html>

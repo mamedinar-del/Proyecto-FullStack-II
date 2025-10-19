@@ -16,14 +16,161 @@
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <link rel="stylesheet" href="css/responsive.css">
       <link rel="shortcut icon" href="images/LogoTienda-SinFondo.png" type="image/x-icon">
-      <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Sen:400,700,800&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <link rel="stylesheet" href="css/whatsapp.css">
-      <!-- Font Awesome 6 (Free) -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <link rel="stylesheet" href="css/whatsapp.css">
+      <link rel="stylesheet" href="css/carrito.css">
+      <!-- Font Awesome 6 (Free) -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <style>
+         /* Los estilos se han movido a style.css */
+         .carousel-inner {
+            border-radius: 0;
+            overflow: hidden;
+         }
+         .carousel-item {
+            height: 70vh;
+            min-height: 400px;
+            background-color: #000;
+         }
+         .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+         }
+         /* Removed dark overlay to show images with true colors */
+         /* Carousel caption styles removed as per request */
+         .carousel-caption .btn {
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+         }
+         .carousel-indicators {
+            bottom: 20px;
+         }
+         .carousel-indicators {
+            bottom: 15px;
+            margin: 0;
+         }
+         .carousel-indicators button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 4px;
+            background-color: rgba(255,255,255,0.5);
+            border: none;
+            transition: all 0.3s ease;
+            opacity: 1;
+         }
+         .carousel-indicators button.active {
+            background-color: #fff;
+            transform: scale(1.2);
+            width: 24px;
+            border-radius: 4px;
+         }
+         .carousel-fade .carousel-item {
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+         }
+         .carousel-fade .carousel-item.active,
+         .carousel-fade .carousel-item-next.carousel-item-start,
+         .carousel-fade .carousel-item-prev.carousel-item-end {
+            opacity: 1;
+         }
+         .carousel-fade .active.carousel-item-start,
+         .carousel-fade .active.carousel-item-end {
+            opacity: 0;
+         }
+         .carousel-fade .carousel-item-next.carousel-item-start,
+         .carousel-fade .carousel-item-prev.carousel-item-end,
+         .carousel-fade .carousel-item.active {
+            transform: none;
+         }
+         /* Custom carousel arrows */
+         .carousel-arrow {
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+         }
+         .carousel-arrow:hover {
+            opacity: 1;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+         }
+         .carousel-control-prev {
+            left: 15px;
+         }
+         .carousel-control-next {
+            right: 15px;
+         }
+         .carousel-control-custom:hover {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.3);
+            transform: translateY(-50%) scale(1.1);
+         }
+         .carousel-control-prev.carousel-control-custom {
+            left: 15px;
+         }
+         .carousel-control-next.carousel-control-custom {
+            right: 15px;
+         }
+         .carousel-control-custom .carousel-control-prev-icon,
+         .carousel-control-custom .carousel-control-next-icon {
+            width: 14px;
+            height: 14px;
+            background-size: 14px 14px;
+         }
+         @media (max-width: 991.98px) {
+            .navbar-collapse {
+               background: white;
+               padding: 15px;
+               margin-top: 10px;
+               border-radius: 5px;
+               box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            .navbar-nav {
+               flex-direction: column !important;
+               width: 100%;
+            }
+            .nav-item {
+               margin: 5px 0;
+            }
+            .nav-link {
+               padding: 10px 15px !important;
+            }
+         }
+         @media (max-width: 991.98px) {
+            .carousel-item {
+               height: 50vh;
+               min-height: 300px;
+            }
+         }
+         @media (max-width: 768px) {
+            .carousel-item {
+               height: 40vh;
+               min-height: 200px;
+            }
+         }
+      </style>
 
    </head>
    <body>
@@ -33,118 +180,253 @@
 <i class="fa fa-whatsapp my-float "></i>
 </a>
 
-      <div class="header_section">
-         <div class="logo-container">
-            <a class="navbar-brand"href="index.html"><img src="images/LogoTienda-SinFondo-125x125.png"></a>
-         </div>
-         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-               </button>
-               <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Inicio</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre Nosotros</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="#">Servicio Técnico</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="#">Envío</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
-                     </li>
-                  </ul>
-                  <!-- Buscador -->
-                  <form class="form-inline my-2 my-lg-0 mx-3 navbar-search">
-                     <div class="input-group">
-                        <input class="form-control" type="search" placeholder="Buscar productos..." aria-label="Buscar">
-                        <button class="btn btn-search" type="submit">
-                           <i class="fa fa-search"></i>
+      <!-- Header -->
+      <header class="header-area" style="width: 100%;">
+         <div class="container-fluid px-0">
+            <div class="row g-0 justify-content-center">
+               <div class="col-12">
+                  <div class="d-flex justify-content-between align-items-center py-3" style="max-width: 1800px; margin: 0 auto; padding: 0 2rem;">
+                     <!-- Logo -->
+                     <div class="logo" style="margin-right: 20px;">
+                        <a href="index.html">
+                           <img src="images/LogoTienda-SinFondo.png" alt="Level-Up Gamer" style="height: 90px; transition: all 0.3s ease;">
+                        </a>
+                     </div>
+
+                     <!-- Barra de búsqueda -->
+                     <div class="w-100" style="max-width: 900px; margin: 0 40px;">
+                        <div class="input-group" style="height: 50px;">
+                           <input type="text" class="form-control" placeholder="Buscar productos..." style="height: 100%; font-size: 1.1rem;">
+                           <button class="btn btn-search" type="button" style="height: 100%; min-width: 60px;">
+                              <i class="fas fa-search"></i>
+                           </button>
+                        </div>
+                     </div>
+
+                     <!-- Iconos de usuario y carrito -->
+                     <div class="d-flex align-items-center justify-content-end">
+                        <!-- Menú de Usuario -->
+                        <div class="dropdown me-3">
+                           <button class="btn btn-light text-dark dropdown-toggle custom-account-btn" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" title="Iniciar Sesión">
+                              <i class="fas fa-user"></i>
+                           </button>
+                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                              <li><a class="dropdown-item" href="inicio-sesion.html">Iniciar Sesión</a></li>
+                              <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
+                           </ul>
+                        </div>
+
+                        <!-- Carrito con contador -->
+                        <div class="position-relative">
+                           <a href="#" class="btn btn-outline-secondary ms-4 carrito-btn" title="Carrito de compras">
+                              <i class="fas fa-shopping-cart"></i>
+                              <span class="contador-carrito">0</span>
+                           </a>
+                        </div>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler d-lg-none ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                           <span class="navbar-toggler-icon"></span>
                         </button>
                      </div>
-                  </form>
-                  <!-- Fin Buscador -->
-                  <div class="d-flex align-items-center">
-                     <a href="inicio-sesion.html" class="nav-icon"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
-                     <a href="#" class="nav-icon ms-3"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                   </div>
                </div>
             </div>
-         </nav>
-         <!-- Carrusel Simple -->
-         <div class="simple-carousel">
-            <div id="simpleCarousel" class="carousel slide" data-bs-ride="carousel">
-               <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#simpleCarousel" data-bs-slide-to="0" class="active"></button>
-                  <button type="button" data-bs-target="#simpleCarousel" data-bs-slide-to="1"></button>
-                  <button type="button" data-bs-target="#simpleCarousel" data-bs-slide-to="2"></button>
+
+            <!-- Bottom Row: Navigation Menu -->
+            <div class="row">
+               <div class="col-12">
+                  <!-- Navegación Principal -->
+                  <nav class="navbar navbar-expand-lg navbar-light bg-white py-0 border-top">
+                     <div class="container-fluid px-5">
+                        <div class="collapse navbar-collapse" id="mainNavbar">
+                           <ul class="navbar-nav w-100 justify-content-between">
+                              <li class="nav-item">
+                                 <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Inicio</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="about-us.html"><i class="fas fa-info-circle me-1"></i> Sobre Nosotros</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="servicio-tecnico.html"><i class="fas fa-tools me-1"></i> Servicio Técnico</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="#"><i class="fas fa-truck me-1"></i> Envíos</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="#"><i class="fas fa-blog me-1"></i> Blog</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="#"><i class="fas fa-headset me-1"></i> Contacto</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </nav>
                </div>
-               <div class="carousel-inner">
-                  <div class="carousel-item active">
-                     <div class="carousel-content d-flex">
-                        <div class="carousel-text text-start me-5">
-                           <h2 class="display-4 fw-bold mb-3">Nuevos Lanzamientos</h2>
-                           <p class="lead mb-4">Descubre los juegos más esperados del año con las mejores ofertas exclusivas para nuestros clientes.</p>
-                           <a href="#" class="btn btn-primary btn-lg px-4">Ver más</a>
-                        </div>
-                        <div class="carousel-image">
-                           <img src="images/god-of-war-ragnarok.png" alt="Juegos" class="img-fluid">
-                        </div>
-                     </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="carousel-content d-flex">
-                        <div class="carousel-text text-start me-5">
-                           <h2 class="display-4 fw-bold mb-3">Consolas en Oferta</h2>
-                           <p class="lead mb-4">Las mejores ofertas en consolas de última generación con garantía oficial y envío gratuito.</p>
-                           <a href="#" class="btn btn-primary btn-lg px-4">Ver ofertas</a>
-                        </div>
-                        <div class="carousel-image">
-                           <img src="images/ps5-caja-500x500.png" alt="Consolas" class="img-fluid">
-                        </div>
-                     </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="carousel-content d-flex">
-                        <div class="carousel-text text-start me-5">
-                           <h2 class="display-4 fw-bold mb-3">Accesorios Gaming</h2>
-                           <p class="lead mb-4">Mejora tu experiencia de juego con nuestros accesorios de alta calidad y rendimiento.</p>
-                           <a href="#" class="btn btn-primary btn-lg px-4">Explorar</a>
-                        </div>
-                        <div class="carousel-image">
-                           <img src="images/gaming-accessories.png" alt="Accesorios" class="img-fluid">
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <button class="carousel-control-prev" type="button" data-bs-target="#simpleCarousel" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon"></span>
-               </button>
-               <button class="carousel-control-next" type="button" data-bs-target="#simpleCarousel" data-bs-slide="next">
-                  <span class="carousel-control-next-icon"></span>
-               </button>
             </div>
+         </div>
+      </header>
+
+      <!-- Main Carousel -->
+      <div id="mainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <a href="single-cod.html">
+                  <img src="images/slide2.jpg" class="d-block w-100" alt="Call of Duty: Black Ops 7 - PS5">
+               </a>
+            </div>
+            <div class="carousel-item">
+               <img src="images/slide3.jpg" class="d-block w-100" alt="Nuevos Lanzamientos">
+            </div>
+            <div class="carousel-item">
+               <img src="images/slide2.jpg" class="d-block w-100" alt="Accesorios Gamer">
+            </div>
+         </div>
+         <button class="carousel-control-prev carousel-arrow" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+         </button>
+         <button class="carousel-control-next carousel-arrow" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+         </button>
+         <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
          </div>
       </div>
          </div>
-      <!-- Sección de Productos -->
-      <section id="productos" class="py-5 bg-light">
+      <!-- Productos Destacados -->
+      <section id="productos" class="py-5">
          <div class="container">
-            <div class="section-title text-center mb-5">
-               <h2 class="mb-3">Productos Destacados</h2>
-               <p>Descubre nuestras mejores ofertas en videojuegos y accesorios</p>
+            <div class="row">
+               <div class="col-12 text-center mb-5">
+                  <h2 class="section-title">Productos Destacados</h2>
+                  <div class="title-line"></div>
+               </div>
             </div>
-            <div class="row productos-container">
-               <!-- Los productos se cargarán aquí dinámicamente desde productos.js -->
+            <div class="row g-4 productos-container" id="productosContainer">
+               <!-- Los productos se cargarán aquí con JavaScript -->
             </div>
          </div>
       </section>
+      
+      <script>
+      // Función para formatear precios
+      function formatPrice(price) {
+         return '$' + price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      }
+      
+      // Función para renderizar los productos
+      function renderizarProductos() {
+         const container = document.getElementById('productosContainer');
+         if (!container) {
+            console.error('No se encontró el contenedor de productos');
+            return;
+         }
+         
+         // Obtener productos
+         let productos = cargarProductos();
+         console.log('Productos a renderizar:', productos);
+         
+         // Limpiar contenedor
+         container.innerHTML = '';
+         
+         // Mostrar cada producto
+         productos.forEach(producto => {
+            const precioFinal = producto.enOferta && producto.precioOriginal 
+               ? producto.precio 
+               : producto.precio;
+               
+            const precioOriginal = producto.enOferta && producto.precioOriginal 
+               ? producto.precioOriginal 
+               : null;
+         
+            const productoHTML = `
+               <div class="col-lg-4 col-md-6 mb-4">
+                  <div class="card h-100 product-card">
+                     ${producto.enOferta ? '<div class="badge bg-danger position-absolute" style="top: 0.5rem; right: 0.5rem">Oferta</div>' : ''}
+                     ${producto.esNuevo ? '<div class="badge bg-primary position-absolute" style="top: 0.5rem; left: 0.5rem">Nuevo</div>' : ''}
+                     
+                     <img src="${producto.imagen || 'images/placeholder.jpg'}" class="card-img-top" alt="${producto.nombre}" onerror="this.src='images/placeholder.jpg'">
+                     
+                     <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">${producto.nombre}</h5>
+                        <p class="card-text">${producto.descripcion || 'Sin descripción'}</p>
+                        
+                        <div class="mt-auto">
+                           <div class="d-flex justify-content-between align-items-center mb-3">
+                              <div>
+                                 ${precioOriginal ? 
+                                    `<span class="text-muted text-decoration-line-through me-2">${formatPrice(precioOriginal)}</span>` 
+                                    : ''}
+                                 <span class="h5 mb-0 text-primary">${formatPrice(precioFinal)}</span>
+                              </div>
+                              <div class="rating">
+                                 ${'★'.repeat(producto.calificacion || 0)}${'☆'.repeat(5 - (producto.calificacion || 0))}
+                                 <small class="text-muted">(${producto.reseñas || 0})</small>
+                              </div>
+                           </div>
+                           
+                           <div class="d-grid gap-2">
+                              <button class="btn btn-primary btn-agregar-carrito" data-id="${producto.id}">
+                                 <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            `;
+            
+            container.insertAdjacentHTML('beforeend', productoHTML);
+         });
+         
+         // Agregar event listeners a los botones de carrito
+         document.querySelectorAll('.btn-agregar-carrito').forEach(button => {
+            button.addEventListener('click', (e) => {
+               const productId = parseInt(e.target.closest('button').dataset.id);
+               const producto = productos.find(p => p.id === productId);
+               if (producto) {
+                  agregarAlCarrito(producto);
+                  mostrarNotificacion('Producto agregado al carrito', 'success');
+               }
+            });
+         });
+      }
+      
+      // Función para cargar productos desde localStorage o del archivo productos.js
+      function cargarProductos() {
+         const storedProducts = localStorage.getItem('products');
+         if (storedProducts) {
+            return JSON.parse(storedProducts);
+         } else {
+            // Si no hay productos en localStorage, usar los de productos.js
+            return Object.values(productos);
+         }
+      }
+
+      // Escuchar cambios en localStorage
+      window.addEventListener('storage', (e) => {
+         console.log('Storage event detected:', e);
+         if (e.key === 'products' || e.key === null) {
+            console.log('Products updated, re-rendering...');
+            renderizarProductos();
+         }
+      });
+      
+      // También escuchar eventos personalizados (para cambios en la misma pestaña)
+      window.addEventListener('storage-event', () => {
+         console.log('Custom storage event detected, re-rendering...');
+         renderizarProductos();
+      });
+      
+      // Renderizar productos cuando la página cargue
+      document.addEventListener('DOMContentLoaded', () => {
+         console.log('DOM fully loaded, rendering products...');
+         renderizarProductos();
+      });
+      </script>
 
       <!-- Sección de Servicio Técnico -->
       <section id="servicio-tecnico">
@@ -177,13 +459,13 @@
                      </div>
                      
                      <button id="btn-agendar-servicio" class="btn btn-outline-light btn-lg px-5 py-3 fw-bold">
-                        <i class="fas fa-calendar-alt me-2"></i>Agendar Servicio
+                        <i class="fas fa-calendar-alt me-2"></i> Agendar Servicio
                      </button>
                   </div>
                </div>
                <div class="col-lg-6">
                   <div class="servicio-imagen">
-                     <img src="images/servicio-tecnico.jpg" alt="Servicio Técnico" class="img-fluid">
+                     <img src="images/tecnico.jpg" alt="Servicio Técnico" class="img-fluid">
                   </div>
                </div>
             </div>
@@ -237,32 +519,15 @@
          </div>
       </section>
       
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-      
-      <!-- SweetAlert2 para notificaciones -->
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-      
-      <!-- Nuestros archivos JavaScript -->
-      <script src="js/productos.js"></script>
-      <script src="js/descuentos.js"></script>
-      
-      <!-- Inicialización del carrusel -->
-      <script>
-         // Inicialización simple del carrusel
-         document.addEventListener('DOMContentLoaded', function() {
-             var myCarousel = new bootstrap.Carousel(document.querySelector('#simpleCarousel'), {
-                 interval: 5000,
-                 touch: true,
-                 wrap: true
-             });
-             
-             // Añadir clase para activar transiciones después de la carga
-             document.querySelector('#simpleCarousel').classList.add('carousel-transition');
+      <!-- Scripts se moverán al final del body -->
+            var carousel = new bootstrap.Carousel(myCarousel, {
+               interval: 5000,
+               wrap: true,
+               touch: true,
+               pause: 'hover'
+            });
          });
-       </script>
+      </script>
 
       <!-- Footer -->
       <footer class="footer-section">
@@ -356,6 +621,68 @@
             </div>
          </div>
       </footer>
+
+      <!-- Carrito lateral -->
+      <div id="carrito-sidebar">
+         <div class="carrito-header">
+            <h4>Tu Carrito</h4>
+            <button class="carrito-cerrar">&times;</button>
+         </div>
+         <div class="carrito-contenido">
+            <!-- Los productos se cargarán aquí dinámicamente -->
+         </div>
+         <div class="carrito-footer">
+            <div class="carrito-total">
+               <span>Total:</span>
+               <span class="carrito-total-precio">$0</span>
+            </div>
+            <div class="carrito-acciones">
+               <a href="#" class="btn btn-outline-secondary">Seguir comprando</a>
+               <a href="#" class="btn btn-primary">Pagar ahora</a>
+            </div>
+         </div>
+      </div>
+      <div class="carrito-overlay"></div>
    </div>
+
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   
+   <!-- SweetAlert2 para notificaciones -->
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
+   <!-- Nuestros archivos JavaScript -->
+   <script src="js/owl.carousel.min.js"></script>
+   <script src="js/carrito.js"></script>
+   <script src="js/productos.js"></script>
+   <script src="js/descuentos.js"></script>
+   <script src="js/custom.js"></script>
+   
+   <script>
+      // Inicializar el carrusel con opciones
+      document.addEventListener('DOMContentLoaded', function() {
+         // Inicializar el carrusel
+         var myCarousel = document.getElementById('mainCarousel');
+         if (myCarousel) {
+            var carousel = new bootstrap.Carousel(myCarousel, { 
+               interval: 5000, 
+               wrap: true, 
+               touch: true, 
+               pause: 'hover' 
+            });
+         } else {
+            console.warn('No se encontró el elemento con ID mainCarousel');
+         }
+         
+         // Inicializar el carrito
+         if (typeof cargarCarrito === 'function') {
+            cargarCarrito();
+         } else {
+            console.error('La función cargarCarrito no está definida');
+         }
+      });
+   </script>
    </body>
 </html>
