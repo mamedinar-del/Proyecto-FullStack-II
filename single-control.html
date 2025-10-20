@@ -17,17 +17,13 @@
       <link rel="shortcut icon" href="images/LogoTienda-SinFondo.png" type="image/x-icon">
       <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Sen:400,700,800&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="css/carrito.css">
+      <link rel="stylesheet" href="css/floating-cart.css">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
    </head>
    <body class="d-flex flex-column min-vh-100">
-      <!-- Botón de WhatsApp flotante -->
-      <link rel="stylesheet" href="css/whatsapp.css">
-      <a href="https://api.whatsapp.com/send?phone=56975260485&text=¡Hola! Level-Up Quiero contactar al servicio técnico para recibir ayuda con mi problema." class="float" target="_blank">
-         <i class="fab fa-whatsapp my-float"></i>
-      </a>
-
       <!-- Header -->
       <header class="header-area" style="width: 100%;">
          <div class="container-fluid px-0">
@@ -54,13 +50,19 @@
                      <!-- Iconos de usuario y carrito -->
                      <div class="d-flex align-items-center justify-content-end">
                         <!-- Menú de Usuario -->
-                        <div class="dropdown">
-                           <button class="btn btn-light text-dark dropdown-toggle custom-account-btn" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" title="Iniciar Sesión">
+                        <div class="dropdown me-3">
+                           <button class="btn btn-light text-dark dropdown-toggle custom-account-btn" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" title="Mi Cuenta">
                               <i class="fas fa-user"></i>
+                              <span id="userName"></span>
                            </button>
-                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                              <li><a class="dropdown-item" href="inicio-sesion.html">Iniciar Sesión</a></li>
-                              <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
+                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu" id="userDropdown">
+                              <!-- Las opciones se cargarán dinámicamente con JavaScript -->
+                              <li class="dropdown-item-text d-none" id="welcomeText">Bienvenido, <span id="userNameText"></span></li>
+                              <li><hr class="dropdown-divider d-none" id="divider"></li>
+                              <li><a class="dropdown-item d-none" href="#" id="profileLink">Mi Perfil</a></li>
+                              <li><a class="dropdown-item" href="inicio-sesion.html" id="loginLink">Iniciar Sesión</a></li>
+                              <li><a class="dropdown-item" href="registro.html" id="registerLink">Registrarse</a></li>
+                              <li><a class="dropdown-item d-none text-danger" href="#" id="logoutLink">Cerrar Sesión</a></li>
                            </ul>
                         </div>
 
@@ -189,7 +191,8 @@
                      </div>
 
                      <div class="d-grid gap-2 d-md-flex">
-                        <button class="btn btn-primary btn-lg flex-grow-1 me-md-2">
+                        <button class="btn btn-primary btn-lg flex-grow-1 me-md-2 add-to-cart" 
+                                data-product='{"id": "control-inalambrico-ps5", "name": "Control Inalámbrico PS5", "price": 64990, "image": "images/control-ps5.jpg", "quantity": 1}'>
                            <i class="fas fa-shopping-cart me-2"></i>Agregar al carrito
                         </button>
                         <button class="btn btn-outline-secondary btn-lg">
@@ -448,34 +451,92 @@
 
       <!-- Scripts -->
       <script src="js/jquery-3.6.0.min.js"></script>
+      <!-- Script de autenticación debe cargarse antes de la inicialización de Bootstrap -->
+      <script src="js/auth.js"></script>
+      <script src="js/carrito.js"></script>
+      <script src="js/floating-cart.js"></script>
       <script src="js/bootstrap.bundle.min.js"></script>
       <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
       <script>
+         // Inicializar componentes de Bootstrap 5
+         document.addEventListener('DOMContentLoaded', function() {
+            console.log('Inicializando componentes de Bootstrap 5...');
+            
+            // Inicializar tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+               return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+            
+            // Inicializar dropdowns
+            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+            var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+               return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+            
+            // Inicializar carrusel de productos relacionados
+            var relatedCarousel = document.getElementById('relatedProductsCarousel');
+            if (relatedCarousel) {
+               var carousel = new bootstrap.Carousel(relatedCarousel, {
+                  interval: 5000,
+                  wrap: true
+               });
+            }
+         });
+
          // cambiar la imagen principal al hacer clic en las miniaturas
          function changeImage(element) {
             const mainImage = document.getElementById('mainImage');
-            mainImage.src = element.src;
-            mainImage.alt = element.alt;
+            if (mainImage) {
+               mainImage.src = element.src;
+               mainImage.alt = element.alt;
+            }
          }
 
          // contador de cantidad
          function increaseQuantity() {
             const quantityInput = document.getElementById('quantity');
-            quantityInput.value = parseInt(quantityInput.value) + 1;
+            if (quantityInput) {
+               quantityInput.value = parseInt(quantityInput.value) + 1;
+            }
          }
-
+         
          function decreaseQuantity() {
             const quantityInput = document.getElementById('quantity');
-            if (parseInt(quantityInput.value) > 1) {
+            if (quantityInput && parseInt(quantityInput.value) > 1) {
                quantityInput.value = parseInt(quantityInput.value) - 1;
             }
          }
-
-         // Inicializar tooltips de Bootstrap
-         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-         });
       </script>
+      
+      <!-- Carrito lateral -->
+      <div id="carrito-sidebar">
+         <div class="carrito-header">
+            <h4>Tu Carrito</h4>
+            <button class="carrito-cerrar">&times;</button>
+         </div>
+         <div class="carrito-contenido">
+            <!-- Los productos se cargarán aquí dinámicamente -->
+         </div>
+         <div class="carrito-footer">
+            <div class="carrito-total">
+               <span>Total:</span>
+               <span class="carrito-total-precio">$0</span>
+            </div>
+            <div class="carrito-acciones">
+               <a href="#" class="btn btn-outline-secondary">Seguir comprando</a>
+               <a href="#" class="btn btn-primary">Pagar ahora</a>
+            </div>
+         </div>
+      </div>
+      <div class="carrito-overlay"></div>
+      
+      <!-- Botón flotante del carrito -->
+      <div class="floating-cart">
+         <button class="btn-cart-float" id="btnFloatingCart" title="Ver carrito">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+         </button>
+      </div>
    </body>
 </html>

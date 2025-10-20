@@ -6,6 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <style>html{scroll-behavior:smooth;}</style>
 
       <title>Level-Up Gamer 🎮</title>
       <meta name="keywords" content="">
@@ -22,6 +23,7 @@
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
       <link rel="stylesheet" href="css/whatsapp.css">
       <link rel="stylesheet" href="css/carrito.css">
+      <link rel="stylesheet" href="css/floating-cart.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <style>
          /* Los estilos se han movido a style.css */
@@ -85,11 +87,17 @@
          .carousel-fade .active.carousel-item-end {
             opacity: 0;
          }
+         
+         
+         
          .carousel-fade .carousel-item-next.carousel-item-start,
          .carousel-fade .carousel-item-prev.carousel-item-end,
          .carousel-fade .carousel-item.active {
             transform: none;
          }
+
+
+
 
 
          .carousel-arrow {
@@ -174,10 +182,6 @@
    </head>
    <body>
 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<a href="https://api.whatsapp.com/send?phone=56975260485&text=¡Hola! Level-Up Quiero contactar al servicio técnico para recibir ayuda con mi problema." class="float" target="_blank">
-<i class="fa fa-whatsapp my-float "></i>
-</a>
 
       <!-- Header -->
       <header class="header-area" style="width: 100%;">
@@ -206,22 +210,23 @@
                      <div class="d-flex align-items-center justify-content-end">
                         <!-- Menú de Usuario -->
                         <div class="dropdown me-3">
-                           <button class="btn btn-light text-dark dropdown-toggle custom-account-btn" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" title="Iniciar Sesión">
+                           <button class="btn btn-light text-dark dropdown-toggle custom-account-btn" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" title="Mi Cuenta">
                               <i class="fas fa-user"></i>
+                              <span id="userName"></span>
                            </button>
-                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                              <li><a class="dropdown-item" href="inicio-sesion.html">Iniciar Sesión</a></li>
-                              <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
+                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu" id="userDropdown">
+                              <!-- Las opciones se cargarán dinámicamente con JavaScript -->
+                              <li class="dropdown-item-text d-none" id="welcomeText">Bienvenido, <span id="userNameText"></span></li>
+                              <li><hr class="dropdown-divider d-none" id="divider"></li>
+                              <li><a class="dropdown-item d-none" href="#" id="profileLink">Mi Perfil</a></li>
+                              <li><a class="dropdown-item" href="inicio-sesion.html" id="loginLink">Iniciar Sesión</a></li>
+                              <li><a class="dropdown-item" href="registro.html" id="registerLink">Registrarse</a></li>
+                              <li><a class="dropdown-item d-none text-danger" href="#" id="logoutLink">Cerrar Sesión</a></li>
                            </ul>
                         </div>
 
-                        <!-- Carrito con contador -->
-                        <div class="position-relative">
-                           <a href="#" class="btn btn-outline-secondary ms-4 carrito-btn" title="Carrito de compras">
-                              <i class="fas fa-shopping-cart"></i>
-                              <span class="contador-carrito">0</span>
-                           </a>
-                        </div>
+                        <!-- Espacio reservado para mantener el diseño -->
+                        <div class="ms-4" style="width: 40px;"></div>
 
                         <!-- Mobile Menu Button -->
                         <button class="navbar-toggler d-lg-none ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -256,7 +261,7 @@
                                  <a class="nav-link" href="#"><i class="fas fa-blog me-1"></i> Blog</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="#"><i class="fas fa-headset me-1"></i> Contacto</a>
+                                 <a class="nav-link" href="#contacto"><i class="fas fa-envelope me-1"></i> Contacto</a>
                               </li>
                            </ul>
                         </div>
@@ -396,27 +401,42 @@
       
       // Función para cargar productos desde localStorage o del archivo productos.js
       function cargarProductos() {
-         const storedProducts = localStorage.getItem('products');
-         if (storedProducts) {
-            return JSON.parse(storedProducts);
-         } else {
-            // Si no hay productos en localStorage, usar los de productos.js
-            return Object.values(productos);
+         try {
+            // Primero intentar cargar desde localStorage
+            const storedProducts = localStorage.getItem('productos');
+            if (storedProducts) {
+               const parsed = JSON.parse(storedProducts);
+               console.log('Productos cargados desde localStorage:', parsed);
+               return Object.values(parsed);
+            }
+            
+            // Si no hay en localStorage, verificar si está en window.productos
+            if (window.productos && typeof window.productos === 'object') {
+               console.log('Productos cargados desde window.productos:', window.productos);
+               return Object.values(window.productos);
+            }
+            
+            console.warn('No se encontraron productos en localStorage ni en window.productos');
+            return [];
+         } catch (error) {
+            console.error('Error al cargar productos:', error);
+            return [];
          }
       }
 
       // Escuchar cambios en localStorage
       window.addEventListener('storage', (e) => {
          console.log('Storage event detected:', e);
-         if (e.key === 'products' || e.key === null) {
-            console.log('Products updated, re-rendering...');
+         // Verificar si el cambio es en 'productos' o si hubo un cambio general (e.key === null)
+         if (e.key === 'productos' || e.key === null) {
+            console.log('Productos actualizados, volviendo a renderizar...');
             renderizarProductos();
          }
       });
       
-      // También escuchar eventos personalizados (para cambios en la misma pestaña)
-      window.addEventListener('storage-event', () => {
-         console.log('Custom storage event detected, re-rendering...');
+      // Escuchar eventos personalizados para actualizaciones en la misma pestaña
+      window.addEventListener('productosActualizados', (e) => {
+         console.log('Evento productosActualizados recibido, actualizando productos...');
          renderizarProductos();
       });
       
@@ -458,7 +478,7 @@
                      </div>
                      
                      <button id="btn-agendar-servicio" class="btn btn-outline-light btn-lg px-5 py-3 fw-bold">
-                        <i class="fas fa-calendar-alt me-2"></i> Agendar Servicio
+                        <a href="servicio-tecnico.html"><i class="fas fa-calendar-alt me-2"></i> Agendar Servicio</a>
                      </button>
                   </div>
                </div>
@@ -529,7 +549,7 @@
       </script>
 
       <!-- Footer -->
-      <footer class="footer-section">
+      <footer id="contacto" class="footer-section">
          <div class="container">
             <div class="row g-4">
                <div class="col-lg-4 col-md-6">
@@ -655,9 +675,10 @@
    <!-- Nuestros archivos JavaScript -->
    <script src="js/owl.carousel.min.js"></script>
    <script src="js/carrito.js"></script>
-   <script src="js/productos.js"></script>
-   <script src="js/descuentos.js"></script>
+   <script src="js/floating-cart.js"></script>
    <script src="js/custom.js"></script>
+   <script src="js/productos.js"></script>
+   <script src="js/script.js"></script>
    
    <script>
       // Inicializar el carrusel con opciones
@@ -683,5 +704,14 @@
          }
       });
    </script>
+   <!-- Script de autenticación -->
+   <script src="js/auth.js"></script>
+      <!-- Botón flotante del carrito -->
+      <div class="floating-cart">
+         <button class="btn-cart-float" id="btnFloatingCart" title="Ver carrito">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+         </button>
+      </div>
    </body>
 </html>

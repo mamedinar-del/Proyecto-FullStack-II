@@ -1,4 +1,4 @@
-const productos = {
+window.productos = {
     producto1: {
         id: 1,
         nombre: 'Mando Inalámbrico PS5',
@@ -58,26 +58,22 @@ function configurarEventos() {
         filtro.addEventListener('change', filtrarProductos);
     });
 
-    // Configurar evento para los botones de agregar al carrito
     document.addEventListener('click', (e) => {
         const btnAgregar = e.target.closest('.btn-agregar-carrito');
         if (btnAgregar) {
             e.preventDefault();
             e.stopPropagation();
             
-            // Encontrar la tarjeta de producto más cercana
             const card = btnAgregar.closest('.card');
             if (card) {
                 const productoId = parseInt(card.getAttribute('data-producto-id'));
                 console.log('Botón de agregar al carrito clickeado. ID del producto:', productoId);
                 
                 if (!isNaN(productoId)) {
-                    // Buscar el producto en el objeto de productos
                     const producto = Object.values(productos).find(p => p.id === productoId);
                     
                     if (producto) {
                         console.log('Producto encontrado:', producto);
-                        // Llamar a la función global del carrito
                         if (typeof window.agregarAlCarritoGlobal === 'function') {
                             window.agregarAlCarritoGlobal(producto);
                         } else {
@@ -93,7 +89,6 @@ function configurarEventos() {
         }
     });
 
-    // Configurar evento para las tarjetas de producto
     document.addEventListener('click', (e) => {
         const card = e.target.closest('.card');
         if (card && !e.target.closest('.btn-agregar-carrito') && !e.target.closest('.btn-vista-rapida')) {
@@ -254,7 +249,6 @@ function agregarAlCarrito(productoId) {
     const producto = productos[`producto${productoId}`];
     if (!producto) return;
     
-    // Usar la función de carrito.js
     if (typeof window.agregarAlCarritoGlobal === 'function') {
         window.agregarAlCarritoGlobal(producto);
     }
@@ -274,8 +268,3 @@ function mostrarNotificacion(mensaje) {
         alert(mensaje);
     }
 }
-
-// La función guardarCarrito ahora está en carrito.js
-// La función cargarCarrito ahora está en carrito.js
-
-// Inicialización movida a carrito.js

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/LogoTienda-SinFondo.png" type="image/x-icon">
     <title>Agendar Servicio Técnico - Level-Up Gamer</title>
     <!-- Google Fonts - Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,26 +18,33 @@
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/servicio-tecnico.css">
+    <link rel="stylesheet" href="css/carrito.css">
+    <link rel="stylesheet" href="css/floating-cart.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="header-area" style="width: 100%;">
+    <header class="header-area">
         <div class="container-fluid px-0">
             <div class="row g-0 justify-content-center">
                 <div class="col-12">
-                    <div class="d-flex justify-content-between align-items-center py-3" style="max-width: 1800px; margin: 0 auto; padding: 0 2rem;">
+                    <div class="header-content">
                         <!-- Logo -->
-                        <div class="logo" style="margin-right: 20px;">
+                        <div class="logo">
                             <a href="index.html">
-                                <img src="images/LogoTienda-SinFondo.png" alt="Level-Up Gamer" style="height: 90px; transition: all 0.3s ease;">
+                                <img src="images/LogoTienda-SinFondo.png" alt="Level-Up Gamer" class="logo-img">
                             </a>
                         </div>
 
                         <!-- Barra de búsqueda -->
-                        <div class="w-100" style="max-width: 900px; margin: 0 40px;">
-                            <div class="input-group" style="height: 50px;">
-                                <input type="text" class="form-control" placeholder="Buscar productos..." style="height: 100%; font-size: 1.1rem;">
-                                <button class="btn btn-search" type="button" style="height: 100%; min-width: 60px;">
+                        <div class="search-container">
+                            <div class="search-input-group">
+                                <input type="text" class="form-control search-input" placeholder="Buscar productos...">
+                                <button class="btn btn-search" type="button">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
@@ -45,23 +53,24 @@
                         <!-- Iconos de usuario y carrito -->
                         <div class="d-flex align-items-center justify-content-end">
                             <!-- Menú de Usuario -->
-                            <div class="dropdown">
-                                <button class="btn btn-light text-dark dropdown-toggle custom-account-btn" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" title="Iniciar Sesión">
+                            <div class="dropdown me-3">
+                                <button class="btn btn-light text-dark dropdown-toggle custom-account-btn" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" title="Mi Cuenta">
                                     <i class="fas fa-user"></i>
+                                    <span id="userName"></span>
                                 </button>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                                    <li><a class="dropdown-item" href="inicio-sesion.html">Iniciar Sesión</a></li>
-                                    <li><a class="dropdown-item" href="registro.html">Registrarse</a></li>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu" id="userDropdown">
+                                    <!-- Las opciones se cargarán dinámicamente con JavaScript -->
+                                    <li class="dropdown-item-text d-none" id="welcomeText">Bienvenido, <span id="userNameText"></span></li>
+                                    <li><hr class="dropdown-divider d-none" id="divider"></li>
+                                    <li><a class="dropdown-item d-none" href="#" id="profileLink">Mi Perfil</a></li>
+                                    <li><a class="dropdown-item" href="inicio-sesion.html" id="loginLink">Iniciar Sesión</a></li>
+                                    <li><a class="dropdown-item" href="registro.html" id="registerLink">Registrarse</a></li>
+                                    <li><a class="dropdown-item d-none text-danger" href="#" id="logoutLink">Cerrar Sesión</a></li>
                                 </ul>
                             </div>
 
-                            <!-- Carrito con contador -->
-                            <div class="position-relative">
-                                <a href="#" class="btn btn-outline-secondary ms-4 carrito-btn" title="Carrito de compras">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    <span class="contador-carrito">0</span>
-                                </a>
-                            </div>
+                            <!-- Espacio reservado para mantener el diseño -->
+                            <div class="ms-4 spacer"></div>
 
                             <!-- Mobile Menu Button -->
                             <button class="navbar-toggler d-lg-none ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,22 +90,22 @@
                             <div class="collapse navbar-collapse" id="mainNavbar">
                                 <ul class="navbar-nav w-100 justify-content-between">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Inicio</a>
+                                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Inicio</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="about-us.html"><i class="fas fa-info-circle me-1"></i> Sobre Nosotros</a>
+                                        <a class="nav-link" href="about-us.html"><i class="fas fa-info-circle me-1"></i>Sobre Nosotros</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="servicio-tecnico.html"><i class="fas fa-tools me-1"></i> Servicio Técnico</a>
+                                        <a class="nav-link active" href="servicio-tecnico.html"><i class="fas fa-tools me-1"></i>Servicio Técnico</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#"><i class="fas fa-truck me-1"></i> Envíos</a>
+                                        <a class="nav-link" href="#"><i class="fas fa-truck me-1"></i>Envíos</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#"><i class="fas fa-blog me-1"></i> Blog</a>
+                                        <a class="nav-link" href="#"><i class="fas fa-blog me-1"></i>Blog</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#"><i class="fas fa-headset me-1"></i> Contacto</a>
+                                        <a class="nav-link" href="#contacto"><i class="fas fa-headset me-1"></i>Contacto</a>
                                     </li>
                                 </ul>
                             </div>
@@ -225,7 +234,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer-section">
+    <footer id="contacto" class="footer-section">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
@@ -313,9 +322,43 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Scripts de Bootstrap y personalizados -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Scripts personalizados -->
+    <script src="js/carrito.js"></script>
+    <script src="js/floating-cart.js"></script>
     <script src="js/servicio-tecnico.js"></script>
+    <!-- Script de autenticación -->
+    <script src="js/auth.js"></script>
+
+    <!-- Carrito lateral -->
+    <div id="carrito-sidebar">
+        <div class="carrito-header">
+            <h4>Tu Carrito</h4>
+            <button class="carrito-cerrar">&times;</button>
+        </div>
+        <div class="carrito-contenido">
+            <!-- Los productos se cargarán aquí dinámicamente -->
+        </div>
+        <div class="carrito-footer">
+            <div class="carrito-total">
+                <span>Total:</span>
+                <span class="carrito-total-precio">$0</span>
+            </div>
+            <div class="carrito-acciones">
+                <a href="index.html" class="btn btn-outline-secondary">Seguir comprando</a>
+                <a href="#" class="btn btn-primary">Pagar ahora</a>
+            </div>
+        </div>
+    </div>
+    <div class="carrito-overlay"></div>
+
+    <!-- Botón flotante del carrito -->
+    <div class="floating-cart">
+        <button class="btn-cart-float" id="btnFloatingCart" title="Ver carrito">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </div>
+    </script>
 </body>
 </html>
