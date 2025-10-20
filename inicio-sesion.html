@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/LogoTienda-SinFondo.png" type="image/x-icon">
+    <title>Iniciar Sesión - Level-Up Gamer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <style>html{scroll-behavior:smooth;}</style>
+   </head>
+   <body>
+
+
+      <!-- Header -->
+      <header class="header-area" style="width: 100%;">
+         <div class="container-fluid px-0">
+            <div class="row g-0 justify-content-center">
+               <div class="col-12">
+                  <div class="d-flex justify-content-between align-items-center py-3" style="max-width: 1800px; margin: 0 auto; padding: 0 2rem;">
+                     <!-- Logo -->
+                     <div class="logo" style="margin-right: 20px;">
+                        <a href="index.html">
+                           <img src="images/LogoTienda-SinFondo.png" alt="Level-Up Gamer" style="height: 90px; transition: all 0.3s ease;">
+                        </a>
+                     </div>
+
+                     <!-- Barra de búsqueda -->
+                     <div class="w-100" style="max-width: 900px; margin: 0 40px;">
+                        <div class="input-group" style="height: 50px;">
+                           <input type="text" class="form-control" placeholder="Buscar productos..." style="height: 100%; font-size: 1.1rem;">
+                           <button class="btn btn-search" type="button" style="height: 100%; min-width: 60px;">
+                              <i class="fas fa-search"></i>
+                           </button>
+                        </div>
+                     </div>
+
+                     <!-- Iconos de usuario y carrito -->
+                     <div class="d-flex align-items-center justify-content-end">
+                        <!-- Menú de Usuario -->
+                        <div class="dropdown me-3">
+                           <button class="btn btn-light text-dark dropdown-toggle custom-account-btn" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" title="Mi Cuenta">
+                              <i class="fas fa-user"></i>
+                              <span id="userName"></span>
+                           </button>
+                           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu" id="userDropdown">
+                              <!-- Las opciones se cargarán dinámicamente con JavaScript -->
+                              <li class="dropdown-item-text d-none" id="welcomeText">Bienvenido, <span id="userNameText"></span></li>
+                              <li><hr class="dropdown-divider d-none" id="divider"></li>
+                              <li><a class="dropdown-item d-none" href="#" id="profileLink">Mi Perfil</a></li>
+                              <li><a class="dropdown-item" href="inicio-sesion.html" id="loginLink">Iniciar Sesión</a></li>
+                              <li><a class="dropdown-item" href="registro.html" id="registerLink">Registrarse</a></li>
+                              <li><a class="dropdown-item d-none text-danger" href="#" id="logoutLink">Cerrar Sesión</a></li>
+                           </ul>
+                        </div>
+
+                        <!-- Espacio reservado para mantener el diseño -->
+                        <div class="ms-4" style="width: 40px;"></div>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler d-lg-none ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                           <span class="navbar-toggler-icon"></span>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Bottom Row: Navigation Menu -->
+            <div class="row">
+               <div class="col-12">
+                  <!-- Navegación Principal -->
+                  <nav class="navbar navbar-expand-lg navbar-light bg-white py-0 border-top">
+                     <div class="container-fluid px-5">
+                        <div class="collapse navbar-collapse" id="mainNavbar">
+                           <ul class="navbar-nav w-100 justify-content-between">
+                              <li class="nav-item">
+                                 <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Inicio</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="about-us.html"><i class="fas fa-info-circle me-1"></i> Sobre Nosotros</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="servicio-tecnico.html"><i class="fas fa-tools me-1"></i> Servicio Técnico</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="#"><i class="fas fa-truck me-1"></i> Envíos</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="#"><i class="fas fa-blog me-1"></i> Blog</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="#"><i class="fas fa-headset me-1"></i> Contacto</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+            </div>
+         </div>
+      </header>
+
+      <!-- Contenido Principal -->
+      <main class="container py-5">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>Iniciar Sesión</h2>
+                <p class="text-muted">Ingresa tus credenciales para acceder a tu cuenta</p>
+            </div>
+            
+            <form id="loginForm" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor ingresa un correo electrónico válido.
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="••••••••" required minlength="6">
+                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="invalid-feedback">
+                        La contraseña debe tener al menos 6 caracteres.
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
+                        <label class="form-check-label" for="rememberMe">
+                            Recordar sesión
+                        </label>
+                    </div>
+                    <a href="#" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-login w-100 mb-3">
+                    <span id="loginSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    <span id="loginText">Iniciar Sesión</span>
+                </button>
+                
+                <div id="loginError" class="alert alert-danger d-none" role="alert">
+                    Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.
+                </div>
+                
+                <div class="login-footer">
+                    <p class="mb-0">¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a></p>
+                </div>
+            </form>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer-section">
+         <div class="container">
+            <div class="row g-4">
+               <div class="col-lg-4 col-md-6">
+                  <div class="footer-widget">
+                     <div class="footer-logo mb-3">
+                        <img src="images/LogoTienda-SinFondo-125x125.png" alt="Level-Up Gamer" class="img-fluid" style="max-height: 80px;">
+                     </div>
+                     <p class="mb-3">Tu tienda gamer de confianza con los mejores precios y la mejor atención al cliente. Ofrecemos productos de calidad y servicio técnico especializado.</p>
+                     <div class="social-links">
+                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-tiktok"></i></a>
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="col-lg-2 col-md-6">
+                  <div class="footer-widget">
+                     <h5 class="widget-title">Enlaces Rápidos</h5>
+                     <ul class="footer-links">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Ofertas</a></li>
+                        <li><a href="#">Nuevos Lanzamientos</a></li>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Contáctanos</a></li>
+                     </ul>
+                  </div>
+               </div>
+               
+               <div class="col-lg-3 col-md-6">
+                  <div class="footer-widget">
+                     <h5 class="widget-title">Categorías</h5>
+                     <ul class="footer-links">
+                        <li><a href="#">Videojuegos</a></li>
+                        <li><a href="#">Consolas</a></li>
+                        <li><a href="#">Accesorios</a></li>
+                        <li><a href="#">Figuras de Acción</a></li>
+                        <li><a href="#">Merchandising</a></li>
+                        <li><a href="#">Juegos de Mesa</a></li>
+                     </ul>
+                  </div>
+               </div>
+               
+               <div class="col-lg-3 col-md-6">
+                  <div class="footer-widget">
+                     <h5 class="widget-title">Contacto</h5>
+                     <ul class="contact-info">
+                        <li class="d-flex mb-2">
+                           <i class="fas fa-map-marker-alt me-3 mt-1"></i>
+                           <span>Antonio Varas 666, Santiago, Chile</span>
+                        </li>
+                        <li class="d-flex mb-2">
+                           <i class="fas fa-phone-alt me-3 mt-1"></i>
+                           <span>+56 9 7526 0485</span>
+                        </li>
+                        <li class="d-flex mb-2">
+                           <i class="fas fa-envelope me-3 mt-1"></i>
+                           <span>contacto@levelupgamer.cl</span>
+                        </li>
+                        <li class="d-flex">
+                           <i class="fas fa-clock me-3 mt-1"></i>
+                           <span>Lun-Vie: 10:00 - 20:00<br>Sáb: 11:00 - 19:00</span>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="footer-bottom mt-4 pt-4 border-top border-light">
+               <div class="row align-items-center">
+                  <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                     <p class="mb-0">&copy; 2023 Level-Up Gamer. Todos los derechos reservados.</p>
+                  </div>
+                  <div class="col-md-6 text-center text-md-end">
+                     <div class="payment-methods">
+                        <span class="me-2">Métodos de pago:</span>
+                        <i class="fab fa-cc-visa me-2"></i>
+                        <i class="fab fa-cc-mastercard me-2"></i>
+                        <i class="fab fa-cc-amex me-2"></i>
+                        <i class="fab fa-cc-paypal me-2"></i>
+                        <i class="fas fa-university"></i>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+   </div>
+
+    <!-- Scripts -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="js/auth.js"></script>
+   <script>
+       // Mostrar/ocultar contraseña
+       document.addEventListener('DOMContentLoaded', function() {
+           const togglePassword = document.getElementById('togglePassword');
+           if (togglePassword) {
+               togglePassword.addEventListener('click', function() {
+                   const passwordInput = document.getElementById('password');
+                   const icon = this.querySelector('i');
+                   
+                   if (passwordInput.type === 'password') {
+                       passwordInput.type = 'text';
+                       icon.classList.remove('fa-eye');
+                       icon.classList.add('fa-eye-slash');
+                   } else {
+                       passwordInput.type = 'password';
+                       icon.classList.remove('fa-eye-slash');
+                       icon.classList.add('fa-eye');
+                   }
+               });
+           }
+           
+           // Verificar si el usuario ya está autenticado
+           if (window.auth && window.auth.isUserLoggedIn()) {
+               window.location.href = 'index.html';
+           }
+       });
+   </script>
+   </body>
+</html>

@@ -14,7 +14,6 @@ const Index = () => {
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
 
-  // Función para formatear precios
   const formatPrice = (price) => {
     return new Intl.NumberFormat('es-AR', {
       style: 'currency',
@@ -22,42 +21,34 @@ const Index = () => {
     }).format(price);
   };
 
-  // Función para cargar productos
   const cargarProductos = () => {
     try {
-      // Aquí iría la lógica para cargar los productos
-      // Por ahora, usaremos un array vacío
       setProductos([]);
     } catch (error) {
       console.error('Error al cargar productos:', error);
     }
   };
 
-  // Efecto para cargar los productos al montar el componente
   useEffect(() => {
     cargarProductos();
   }, []);
 
-  // Función para agregar al carrito
   const agregarAlCarrito = (producto) => {
     setCarrito([...carrito, { ...producto, cantidad: 1 }]);
   };
 
-  // Función para eliminar del carrito
   const eliminarDelCarrito = (index) => {
     const nuevoCarrito = [...carrito];
     nuevoCarrito.splice(index, 1);
     setCarrito(nuevoCarrito);
   };
 
-  // Función para calcular el total del carrito
   const calcularTotal = () => {
     return carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
   };
 
   return (
     <div className="Index">
-      {/* Sección del carrusel */}
       <div id="main_slider" className="carousel slide carousel-fade" data-bs-ride="carousel">
         <div className="carousel-inner">
           <div className="carousel-item active">
@@ -68,7 +59,6 @@ const Index = () => {
               <Link to="/productos" className="btn btn-primary">Ver productos</Link>
             </div>
           </div>
-          {/* Agrega más slides según sea necesario */}
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#main_slider" data-bs-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
